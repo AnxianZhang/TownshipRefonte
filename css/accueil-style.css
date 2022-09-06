@@ -36,7 +36,7 @@ nav img{
 
 nav ul {
     display: flex;
-    margin-top: 0.1em;
+    /*margin-top: 0.1em;*/
     
     /*position: absolute;
     top: 50%;
@@ -48,15 +48,27 @@ nav ul {
 nav ul li{
     list-style-type: none;
     border: 0px black solid;
+    transition: all 0.2s ease-in-out;
     text-align: center;
     padding: 0px 0%;
     width: 20%;
+    
+}
+
+/*nav ul li:hover{
+  background-color: #0ca764 ;
+}*/
+
+
+nav ul li:hover > .line {
+  /*visibility: visible;*/
+  background-color: #4fa23b;
 }
 
 nav ul li a{
     text-decoration: none;
     font-size: x-large;
-    padding-top: 20px;
+    padding-top: .5em;
     display: block;
     color: #333;
     white-space: nowrap;
@@ -80,12 +92,14 @@ nav ul li a{
     color: #f1f1f1;
 }
 
-#line{
+.line{
     /* margin-top: 1000px; */
-    height: 3px;
-    width: 15%;
+    height: 0.4em;
+    width: 30%;
     margin: 0 auto;
-    background-color: #f1f1f1;
+    background-color: rgb(102, 199, 255);
+    /*visibility : hidden;*/
+    transition: all 0.2s ease-in-out;
 }
 
 #tourisme{
@@ -94,5 +108,5 @@ nav ul li a{
     background: grey;
 }
 
-/*@emedia < 1200*/
+/*@media < 1200*/
     
