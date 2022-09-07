@@ -8,6 +8,10 @@
     scroll-behavior: smooth;
 }
 
+html{
+  overflow-x: hidden;
+}
+
 body{
     font-family: 'Advent Pro', sans-serif;
 }
@@ -18,17 +22,36 @@ header{
     height: 60px;
     width: 100%;
     opacity: .85;
+    z-index: 10;
+}
+
+#bg-img h1, #tourisme h2{
+  font-family: 'Oooh Baby', cursive;
 }
 
 nav{
     position: relative;
 }
 
+#bonhomme img{
+  width: 3em;
+  height: 3em;
+  margin-top: 0.3em;
+}
+
+#bonhomme{
+  /*border: 2px red solid;*/
+  position: relative;
+  bottom: 50%;
+  right: 1%;
+  padding: auto 0;
+}
+
 nav img{
     background-image: url("../img/icon.png");
-    width: 60px;
-    height: 60px;
-    margin: 0 auto;
+    width: 5em;
+    height: 5em;
+    margin-top: -0.5em;
     float: left;
     /* border: 2px black solid;
     border-radius: 50px; */
@@ -36,6 +59,7 @@ nav img{
 
 nav ul {
     display: flex;
+    position: relative;
     /*margin-top: 0.1em;*/
     
     /*position: absolute;
@@ -87,7 +111,6 @@ nav ul li a{
     margin-top: 60px;
     font-size: 6em;
     /* font-family: 'Cinzel Decorative', cursive; */
-    font-family: 'Oooh Baby', cursive;
     text-align: center;
     color: #f1f1f1;
 }
@@ -102,10 +125,32 @@ nav ul li a{
     transition: all 0.2s ease-in-out;
 }
 
-#tourisme{
-    width: 100%;
+/**********************TOURISME*************************/
+
+#tourism{
+    /* width: 200%;
     height: 700px;
-    background: grey;
+    background: aliceblue;
+    transform: rotate(7deg) translateX(-10%); */
+}
+
+.lean-box-right{
+    width: 200%;
+    height: 700px;
+    background: aliceblue;
+    transform: rotate(7deg) translateX(-10%);
+}
+
+.unlean-right{
+    transform: rotate(-7deg) translateX(-17%);
+}
+
+#tourism h2{
+  font-size: xx-large;
+}
+
+#tourism h2, #tourism p{
+  text-align: center;
 }
 
 /*@media < 1200*/
