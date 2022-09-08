@@ -10,49 +10,108 @@
 
 body{
     font-family: 'Advent Pro', sans-serif;
+    overflow-x: hidden;
 }
 
 header{
     position: fixed;
     background-color: rgb(102, 199, 255);
+    height: 60px;
     width: 100%;
     opacity: .85;
+    z-index: 10;
+}
+
+h1, h2{
+    font-family: 'Oooh Baby', cursive;
+}
+
+h1{
+    margin-top: 60px;
+    font-size: 6em;
+    text-align: center;
+    color: #f1f1f1;
+}
+
+h2{
+    font-size: 2em;
+    text-align: center;
+}
+
+p{
+    font-size: 1.2em;
+}
+
+a{
+    text-decoration: none;
+}
+
+.no-select{
+    pointer-events: none;
+    user-select: none;
 }
 
 nav{
     position: relative;
 }
 
+#login img{
+    width: 3em;
+    height: 3em;
+    margin-top: 0.3em;
+}
+
+#login{
+    position: relative;
+    bottom: 50%;
+    right: 1%;
+    padding: auto 0;
+}
+
+.line{
+    height: 0.4em;
+    width: 30%;
+    margin: 0 auto;
+    background-color: rgb(102, 199, 255);
+    transition: all 0.2s ease-in-out;
+}
+
 nav img{
     background-image: url("../img/icon.png");
-    width: 60px;
-    height: 60px;
-    margin-left: 1em;
+    width: 5em;
+    height: 5em;
+    margin-top: -0.5em;
     float: left;
-    /* border: 2px black solid;
-    border-radius: 50px; */
 }
 
 nav ul {
     display: flex;
-    float: right;
-    margin-top: 18px;
+    position: relative;
+    border: auto;
 }
 
 nav ul li{
     list-style-type: none;
-    padding: 0px 15px;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    padding: 0px 0%;
+    width: 20%;
+    
+}
+
+nav ul li:hover > .line {
+    background-color: #4fa23b;
 }
 
 nav ul li a{
-    text-decoration: none;
-    font-size: 1.2em;
+    font-size: x-large;
+    padding-top: .5em;
     display: block;
     color: #333;
+    white-space: nowrap;
 }
 
 #bg-img{
-    /* margin-top: 25px; */
     padding-top: 50px;
     width: 100%;
     height: 800px;
@@ -60,26 +119,38 @@ nav ul li a{
     background-size: cover;
 }
 
-#bg-img h1{
-    margin-top: 60px;
-    font-size: 6em;
-    /* font-family: 'Cinzel Decorative', cursive; */
-    font-family: 'Oooh Baby', cursive;
-    text-align: center;
-    color: #f1f1f1;
-}
-
-#line{
-    /* margin-top: 1000px; */
-    height: 3px;
-    width: 15%;
-    margin: 0 auto;
+#bg-img > .line{
+    margin-top: 1%;
     background-color: #f1f1f1;
+    width: 20%;
+    height: .1em;
 }
 
-#tourisme{
+/**********************TOURISME*************************/
+
+#presentation{
     width: 100%;
-    height: 700px;
-    background: grey;
+    height: 500px;
+    /* position: absolute; */
+    /* border: solid black 1px; */
 }
+
+#presentation > img{
+    height: 100%;
+    width: 120%;
+    transform: rotate(6deg) translateY(-20%) translateX(-10%);
+}
+
+#presentation > div{
+    /* border: solid red 2px; */
+    bottom: 115%;
+    position: relative;
+}
+
+#presentation > div > p{
+    text-align: center;
+    margin-top: 1em;
+}
+
+/*@media < 1200*/
     
