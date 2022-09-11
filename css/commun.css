@@ -36,6 +36,7 @@ h1{
 h2{
     font-size: 2em;
     text-align: center;
+    margin-bottom: 1em;
 }
 
 p{
@@ -109,4 +110,8 @@ nav ul li a{
     display: block;
     color: #333;
     white-space: nowrap;
+}
+
+.shadow{
+    box-shadow: -8px 9px 9px -4px rgba(0,0,0,0.37);
 }

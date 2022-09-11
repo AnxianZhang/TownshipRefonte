@@ -1,0 +1,100 @@
+#bg-img{
+    padding-top: 50px;
+    width: 100%;
+    height: 800px;
+    background: url("../img/bg.jpg") no-repeat fixed 50% 50%;
+    background-size: cover;
+}
+
+#bg-img > .line{
+    margin-top: 1%;
+    background-color: #f1f1f1;
+    width: 20%;
+    height: .1em;
+}
+
+#presentation{
+    width: 100%;
+    height: 500px;
+}
+
+#presentation > img{
+    height: 100%;
+    width: 120%;
+    transform: rotate(6deg) translateY(-20%) translateX(-10%);
+}
+
+#presentation > div{
+    bottom: 110%;
+    position: relative;
+}
+
+#presentation > div > p{
+    text-align: center;
+    margin: 0 auto;
+    width: 40%;
+}
+
+#activities .box {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+#activities .box >div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+  
+#activities .box .img, .txt{
+    width: 30em;
+    height: 20em;
+    overflow: hidden;
+}
+
+.frame{
+    margin: 3em 0em;
+    position: relative;
+    transition: all .2s 0s ease-in-out;
+}
+
+#activities .txt{
+    margin: 3em 0em 0em 6em;
+    /* border: 1px solid pink; */
+}
+
+.frame::after, .frame::before{
+    content: "";
+    border: 1px rgb(67,111,179) solid;
+    position: absolute;
+    width: 30%;
+    height: 20%;
+    z-index: -1;
+    /* display: block; */
+    transition: all .2s 0s ease-in-out;
+}
+
+.frame::before{
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    right: -5%;
+    top: -7%;
+}
+
+.frame::after{
+    border-right-color: transparent;
+    border-top-color: transparent;
+    left: -5%;
+    bottom: -7%;
+}
+
+.frame:hover{
+    transform: scale(1.05);
+}
+
+.frame:hover::after, .frame:hover::before   {
+    border-color: rgb(67,111,179);
+    width: 100%;
+    height: 100%;
+}
