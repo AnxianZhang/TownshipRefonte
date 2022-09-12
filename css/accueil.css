@@ -1,5 +1,4 @@
 #bg-img{
-    padding-top: 50px;
     width: 100%;
     height: 800px;
     background: url("../img/bg.jpg") no-repeat fixed 50% 50%;
@@ -93,7 +92,7 @@
     transform: scale(1.05);
 }
 
-.frame:hover::after, .frame:hover::before   {
+.frame:hover::after, .frame:hover::before {
     border-color: rgb(67,111,179);
     width: 100%;
     height: 100%;
