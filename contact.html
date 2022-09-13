@@ -3,39 +3,34 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./css/commun.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./img/icon.png" type="image/icon">
 
-  <link rel="icon" href="./img/icon.png" type="image/icon type">
-  <link rel="stylesheet" href="./css/accueil.css">
   <link rel="stylesheet" href="./css/form.css">
+  <link rel="stylesheet" href="./css/commun.css">
   <title>Le Grand Sud Caraïbe</title>
-  <link href="http:/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-  <!--<link rel="stylesheet" type="text/css" href="./styleh.css" media="screen and (max-device-width: 800px)" />-->
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.js"></script>
 </head>
 
 <body>
   <header>
     <nav>
       <ul>
-        <li id="#">
-          <div class="line"></div> <a href="#">Accueil</a>
+        <li>
+          <div class="line"></div> <a href="./index.html">Accueil</a>
         </li>
         <li>
-          <div class="line"></div> <a href="#communes">Les communes membres</a>
+          <div class="line"></div> <a href="./communes.html">Les communes membres</a>
         </li>
         <li>
           <div class="line"></div> <a href="#actualites">Actualités</a>
         </li>
-        <a href="#"><img src="./img/icon.png" id="#" alt="logo"></a>
+        <a href="./index.html"><img src="./img/icon.png" alt="logo"></a>
         <li>
           <div class="line"></div> <a href="#elus">Les élus</a>
         </li>
         <li>
-          <div class="line"></div> <a href="#infos">Les infos pratiques</a>
+          <div class="line"></div> <a href="./Infos-pratiques.html">Les infos pratiques</a>
         </li>
         <li>
           <div class="line"></div> <a href="contact.html">Nous contacter</a>
@@ -44,12 +39,16 @@
       </ul>
     </nav>
   </header>
-
+  <div class="fixe-to-top"></div>
   <section>
-    <h1>Comment contacter Communauté d'Agglomération GRAND SUD CARAIBE</h1>
-    <p>La Communauté d'Agglomération GRAND SUD CARAIBE se tient à l'écoute de tous ses habitants dans un objectif
-      d'amélioration et de service. C'est pourquoi, si vous le souhaitez vous pouvez nous contacter via plusieurs moyens
-      ci dessous:<br>
+    <div id="centrep">
+
+      <h1>Comment contacter Communauté d'Agglomération GRAND SUD CARAIBE</h1>
+      <p>La Communauté d'Agglomération GRAND SUD CARAIBE se tient à l'écoute de tous ses habitants dans un objectif
+        d'amélioration et de service. C'est pourquoi, si vous le souhaitez vous pouvez nous contacter via plusieurs
+        moyens
+        ci dessous:<br></p>
+    </div>
     <div class="contact">
       <dl>
         <dt>Adresse</dt>
@@ -79,7 +78,7 @@
       </dl>
     </div>
 
-    </p>
+
   </section>
 
 
@@ -89,62 +88,104 @@
   <hr>
   <form method="post" action="experiences.html#" accept-charset="utf-8" autocomplete="on">
     <fieldset>
-      <legend>Fiche de demande d'information </legend>
-
-
-
-
-
-   
-
-
-      <br>
-      <textarea minlength="40" maxlength="600" wrap="hard" spellcheck="true" name="commentaire" autocomplete="off"
-        placeholder="votre commentaire ici..." rows="8" cols="70"></textarea>
-      <br>
-
-      
-
-
-<hr class="ligne"> Compte Membre(si vous en possédez un):
+      <legend>Fiche de demande d'information</legend>
+      <br><br>
       <div id="test">
         <div class="intitule">
-          <label> Nom:<sup>*</sup></label><br>
-          <label> Prénom:<sup>*</sup></label><br>
-          <label> Adresse:<sup>*</sup> </label><br>
-          <label> Ville:<sup>*</sup></label><br>
-          <label> Code Postal:<sup>*</sup></label><br>
-          <label> Numéro de mobile:<sup>*</sup></label><br>
-          <label> Courriel:<sup>*</sup></label><br>
-          <label> Date de naissance:<sup class = "transparent">*</sup> </label><br>
-          <label> Demandes spécifiques:<sup class = "transparent">*</sup></label><br>
-          <label> Recevoir une réponse par : <sup class = "transparent">*</sup></label><br>
+          <div>
+            <div>
+              <p> Nom:<sup>*</sup></p>
+            </div>
+            <input type="text" spellcheck="false" placeholder="Entrez votre nom" name="nom" autofocus="autofocus"
+              required="required" pattern="(.{3,30})">
+          </div>
+          <div>
+            <div>
+              <p> Prénom:<sup>*</sup></p>
+            </div>
+            <input type="text" placeholder="Entrez votre prenom" spellcheck="false" required="required" name="prenom"
+              pattern="(.{3,30})">
+          </div>
+          <div>
+            <div>
+              <p> Adresse:<sup>*</sup> </p>
+            </div>
+            <input type="text" placeholder="Entrez votre adresse" required="required" name="adresse"
+              pattern="([0-9]{0,4})(.{3,30})">
+          </div>
+          <div>
+            <div>
+              <p> Ville:<sup>*</sup></p>
+            </div>
+            <input type="text" placeholder="Entrez votre ville" required="required" name="ville">
+          </div>
+          <div>
+            <div>
+              <p> Code Postal:<sup>*</sup></p>
+            </div>
+            <input id="zip" type="number" placeholder="Entrez votre code postal" required="required" step="1"
+              name="code postal">
+          </div>
+          <div>
+            <div>
+              <p> Numéro de mobile:<sup>*</sup></p>
+            </div>
+            <input type="tel" placeholder="01 74 83 63 73" required="required" name="numero mobile"
+              pattern="([+]{0,1})([0-9]{10,12})">
+          </div>
+          <div>
+            <div>
+              <p> Courriel:<sup>*</sup></p>
+            </div>
+            <input type="email" spellcheck="false" placeholder="PARIS-DESCARTES@exemple.com" required="required"
+              name="mail" size="28">
+          </div>
+
+          <div>
+            <div>
+              <p> Date de naissance:<sup class="transparent">*</sup> </p>
+            </div><input type="date" name="birthday">
+          </div>
+          <div>
+            <div>
+              <p> Demandes spécifiques:<sup class="transparent">*</sup></p>
+            </div><textarea minlength="40" maxlength="600" wrap="hard" spellcheck="true" name="commentaire"
+              autocomplete="off" placeholder="votre commentaire ici..." rows="8" cols="60"></textarea>
+          </div>
+          <div>
+            <div>
+              <p> Recevoir une réponse par : <sup class="transparent">*</sup></p>
+            </div>
+            <input type="radio" value="same" name="connaitre">
+            <p>Couriel</p>
+            <input type="radio" checked value="same" name="connaitre">
+            <p>SMS</p>
+          </div>
+          <div>
+
+
+            <div>
+              <p>Compte Membre(si vous en possédez un):</p>
+            </div>
+            <input type="email" placeholder="identifiant(email)">
+            <input type="password" placeholder="Mot de passe" name="password">
+
+          </div>
+
+          <div>
+            <div></div>
+            <input id="submit" onclick="alert('Une erreur est survenu lors de l\'envoie du formulaire ')" type="submit"
+              title="envoyer" value="VALIDER">
+            <input id="reset" type="reset" title="reset" value="RÉINITIALISER">
+
+          </div>
+
         </div>
-        <div class="field">
-          <input type="text" spellcheck="false" placeholder="Entrez votre nom" name="nom" autofocus="autofocus"
-            required="required" pattern="(.{3,30})"><br>
-          <input type="text" placeholder="Entrez votre prenom" spellcheck="false" required="required" name="prenom"
-            pattern="(.{3,30})"><br>
-          <input type="text" placeholder="Entrez votre adresse" required="required" name="adresse"
-            pattern="([0-9]{0,4})(.{3,30})"><br>
-          <input type="text" placeholder="Entrez votre ville" required="required" name="ville"><br>
-          <input type="number" placeholder="Entrez votre code postal" required="required" step="1" name="code postal"><br>
-          <input type="tel" placeholder="01 74 83 63 73" required="required" name="numero mobile"
-            pattern="([+]{0,1})([0-9]{10,12})"><br>
-          <input type="email" spellcheck="false" placeholder="PARIS-DESCARTES@exemple.com" required="required" name="mail"
-            size="35%"><br>
-          <input type="date" name="birthday"><br>
-          <input type="radio" value="same" name="connaitre">Couriel
-          <input type="radio" checked value="same" name="connaitre">SMS<br>
-          <input type="email" placeholder="identifiant(email)"><br>
-          <input type="password" placeholder="Mot de passe" name="password"><br>
-          <input onclick="alert('Une erreur est survenu lors de l\'envoie du formulaire ')" type="submit" title="envoyer"
-            value="VALIDER">
-          <input type="reset" title="reset" value="réinitialiser">
-        </div>
+
+
       </div>
-      
     </fieldset>
+
   </form>
 </body>
 
