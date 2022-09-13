@@ -1,13 +1,13 @@
-const addSecondAnimation = () => {
+const addNextClass = () => {
     const images = Array.from(document.querySelectorAll(".frame"));
-    for(let image of images){
-        image.addEventListener("mouseover", () =>{
-            image.classList.add("next");
+    images.forEach((img) =>{
+        img.addEventListener("mouseover", () =>{
+            img.classList.add("nextAnim");
         });
-        image.addEventListener("mouseleave", () =>{
-            image.classList.remove("next");
-        })
-    }
+        img.addEventListener("mouseleave", () =>{
+            img.classList.remove("nextAnim");
+        });
+    });
 }
 
-window.addEventListener("load", addSecondAnimation);
+window.addEventListener("DOMContentLoaded", addNextClass);
