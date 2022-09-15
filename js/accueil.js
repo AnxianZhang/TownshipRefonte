@@ -1,24 +1,33 @@
-const hasNextAnimation = _ =>{
-    if (_.classList.contains("next-anim"))
-        _.style.border = "transparent";
+const hasSegAnimation = (frame) =>{
     setTimeout(() =>{
-        if (_.classList.contains("next-anim") )
-            _.style.border = "2px red solid";
-    },250);
+        if (frame.classList.contains("seg-anime")){
+            frame.classList.add("next-anime");
+        }
+    },150);
 }
 
-const addNextClass = () => {
-    const images = Array.from(document.querySelectorAll(".frame"));
-    images.forEach((img) =>{
-        img.addEventListener("mouseover", () =>{
-            img.classList.add("next-anim");
-            hasNextAnimation(img);
-        });
-        img.addEventListener("mouseleave", () =>{
-            img.classList.remove("next-anim"); //test
-            hasNextAnimation(img);
-        });
+const addEvent = (frame) =>{
+    frame.addEventListener("mouseover", () =>{
+        frame.classList.add("seg-anime");
+        hasSegAnimation(frame);
+    });
+    frame.addEventListener("mouseleave", () =>{
+        frame.classList.remove("seg-anime");
+        frame.classList.remove("next-anime");
+        hasSegAnimation(frame);
     });
 }
 
-window.addEventListener("DOMContentLoaded", addNextClass);
+const nextAnimation = () =>{
+    const frames = Array.from(document.querySelectorAll(".frame"));
+    frames.forEach((frame) =>{
+        frame.classList.remove("seg-anime");
+        addEvent(frame);
+    });
+}
+
+const start = () => {
+    nextAnimation();
+}
+
+window.addEventListener("DOMContentLoaded", start);

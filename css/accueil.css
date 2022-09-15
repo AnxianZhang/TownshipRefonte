@@ -60,7 +60,6 @@
 
 #activities .txt{
     margin: 3em 0em 0em 6em;
-    /* border: 1px solid pink; */
 }
 
 .frame::after, .frame::before{
@@ -69,8 +68,8 @@
     position: absolute;
     width: 30%;
     height: 20%;
-    z-index: -1;
-    transition: all .2s 0s ease-in-out;
+    z-index: -2;
+    transition: all .2s ease-in-out;
 }
 
 .frame::before{
@@ -97,13 +96,22 @@
     height: 100%;
 }
 
-.frame:hover::after{
-    right: -5%;
+.frame.seg-anime.next-anime:hover::after{
+    background-color: #6AB440;
+    transform: translateY(-13%);
+    transition: all .2s ease-in-out;
+    border-color: transparent;
+    opacity: .85;
 }
 
-.frame.seg-anime.next-anime:hover::after{
-    background-color: red;
-    top: -7%;
-    right: -5%;
+.frame.seg-anime.next-anime:hover::before{
+    background-color: #6AB440;
+    transform: translateY(13%);
     transition: all .2s ease-in-out;
+    border-color: transparent;
+    opacity: .85;
+}
+
+.shadow{
+    box-shadow: 0px 3px 15px 9px rgba(0,0,0,0.34);
 }
