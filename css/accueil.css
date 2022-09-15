@@ -101,9 +101,9 @@
     right: -5%;
 }
 
-/* .frame.nextAnim:hover::after{
+.frame.seg-anime.next-anime:hover::after{
     background-color: red;
     top: -7%;
     right: -5%;
     transition: all .2s ease-in-out;
-} */
+}
