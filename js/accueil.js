@@ -1,4 +1,4 @@
-const hasSegAnimation = (frame) =>{
+const hasSegAnimation = frame =>{
     setTimeout(() =>{
         if (frame.classList.contains("seg-anime")){
             frame.classList.add("next-anime");
@@ -6,7 +6,7 @@ const hasSegAnimation = (frame) =>{
     },150);
 }
 
-const addEvent = (frame) =>{
+const addEvent = frame =>{
     frame.addEventListener("mouseover", () =>{
         frame.classList.add("seg-anime");
         hasSegAnimation(frame);
