@@ -34,6 +34,10 @@
     width: 40%;
 }
 
+#activities >p{
+    text-align: center;
+}
+
 #activities .box {
     display: flex;
     position: relative;
@@ -52,6 +56,10 @@
     overflow: hidden;
 }
 
+#activities .txt>h2{
+    color: #CA8838;
+}
+
 .frame{
     margin: 3em 0em;
     position: relative;
@@ -60,6 +68,7 @@
 
 #activities .txt{
     margin: 3em 0em 0em 6em;
+    /* border: red solid; */
 }
 
 .frame::after, .frame::before{
