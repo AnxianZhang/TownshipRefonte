@@ -1,0 +1,76 @@
+/* :not(svg) {
+    transform-origin: 0px 0px;
+} */
+
+body{
+  background-color : #F0F8FF;
+}
+
+h1{
+  color : #333;
+}
+
+#svg2{
+  width: 100%;
+  height: auto;
+}
+
+#ville{
+  font-size : 4ch;
+}
+
+.casbt {
+	transition: .2s .1s fill;
+    fill: #D3D3D3;
+}
+
+.casbt:hover, .casbt.change-map-color {
+    fill: #f0f13f;
+}
+#caca{
+    width: 50em;
+    /* float: left; */
+    /* border: black solid; */
+}
+#ville-box{
+    margin: auto 0px;
+    margin-top: 8%;
+    width: 20em;
+    height: 80%;
+    padding-left: 1em;
+    border: rgb(194,134,57) solid 0.15em;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    /* float: right; */
+}
+
+#commune-content{
+    /* border: solid pink; */
+    width: auto;
+    height: 60em;
+}
+
+#commune-box{
+    /* position: absolute; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto auto;
+    height: auto;
+    width: 80%;
+    /* border: solid red; */
+}
+
+a{
+    color: #333;
+}
+
+#ville>li{
+    list-style: none;
+}
+
+#test{
+    height: 10em;
+    width: 10em;
+}
