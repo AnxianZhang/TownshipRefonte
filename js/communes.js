@@ -26,9 +26,11 @@ const addEvent = () =>{
     polygons.forEach(polygon => {
         polygon.addEventListener("mouseover", () => {
             countrieLinks[polygonsKey.get(polygon)].style.color = "rgb(194,134,57)";
+            countrieLinks[polygonsKey.get(polygon)].style.fontWeight = "bold";
         });
         polygon.addEventListener("mouseleave", () => {
             countrieLinks[polygonsKey.get(polygon)].style.color = "#333";
+            countrieLinks[polygonsKey.get(polygon)].style.fontWeight = "normal";
         })
     });
 }

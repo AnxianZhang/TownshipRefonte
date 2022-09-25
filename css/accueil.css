@@ -121,11 +121,8 @@
     opacity: .85;
 }
 
+.frame.seg-anime.next-anime.blue-frame:hover::after, 
 .frame.seg-anime.next-anime.blue-frame:hover::before{
-    background-color: rgb(102, 199, 255);
-}
-
-.frame.seg-anime.next-anime.blue-frame:hover::after{
     background-color: rgb(102, 199, 255);
 }
 
