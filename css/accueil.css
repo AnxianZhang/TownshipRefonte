@@ -68,7 +68,6 @@
 
 #activities .txt{
     margin: 3em 0em 0em 6em;
-    /* border: red solid; */
 }
 
 .frame::after, .frame::before{

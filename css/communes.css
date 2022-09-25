@@ -1,7 +1,3 @@
-/* :not(svg) {
-    transform-origin: 0px 0px;
-} */
-
 body{
   background-color : #F0F8FF;
 }
@@ -12,7 +8,7 @@ h1{
 
 #svg2{
   width: 100%;
-  height: auto;w
+  height: auto;
 }
 
 #ville{

@@ -123,7 +123,8 @@ nav ul li a{
 footer{
     width: 100%;
     margin-top: 2em;
-    height: 12em;
+    border-bottom: rgb(102, 199, 255) solid .5em;
+    height: auto;
     background-color: rgb(102, 199, 255);
     opacity: .85;
 }
@@ -136,10 +137,9 @@ footer img{
 
 footer > div{
     width: 80%;
+    height: auto;
     position: relative;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
+    margin: auto;
 }
 
 footer #address, footer #time{  
@@ -157,6 +157,7 @@ footer #contact{
     bottom: 0;
     right: 0;
 }
+
 footer #contact:hover{
     transform: scale(1.6);
 }
