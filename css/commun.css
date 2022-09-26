@@ -157,7 +157,32 @@ footer #contact{
     bottom: 0;
     right: 0;
 }
-
 footer #contact:hover{
     transform: scale(1.6);
+}
+
+@media screen and (max-width: 1150px) {
+    nav ul li :not(#logo), nav ul a :not(#logo){
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h1{
+        font-size: 3em;
+    }
+    h2{
+        font-size: 2em;
+    }
+    h3{
+        font-size: 1.5em;
+    }
+    p{
+        font-size: 1em;
+    }
+
+    footer img{
+        width: 1.5em;
+        height: 1.5em;
+    }
 }
