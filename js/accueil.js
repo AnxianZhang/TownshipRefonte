@@ -1,8 +1,7 @@
 const hasSegAnimation = frame =>{
     setTimeout(() =>{
-        if (frame.classList.contains("seg-anime")){
+        if (frame.classList.contains("seg-anime"))
             frame.classList.add("next-anime");
-        }
     },150);
 }
 
