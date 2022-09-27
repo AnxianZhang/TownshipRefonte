@@ -86,7 +86,6 @@ nav{
 }
 
 nav img{
-    background-image: url("../img/icon.png");
     width: 5em;
     height: 5em;
     margin-top: -0.5em;
@@ -118,6 +117,113 @@ nav ul li a{
     display: block;
     color: #333;
     white-space: nowrap;
+}
+
+nav #menu-box{
+    /* border: #333 solid 2px; */
+    position: fixed;
+    width: 4em;
+    height: 4em;
+    top: 0%;
+    right: 0%;
+    z-index: 9;
+}
+.respon-line, .respon-line::before, .respon-line::after{
+    width: 25px;
+    height: 2.5px;
+    background-color: #333;
+    position: absolute;
+    border-radius: 2.5px;
+    transition: all .2s .1s ease-in-out;
+}
+.respon-line{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.respon-line::before{
+    content: '';
+    bottom: 7px;
+}
+
+.respon-line::after{
+    content: '';
+    top: 7px;
+}
+
+#menu-box.buttonTriggered .respon-line{
+    background-color: transparent;
+}
+
+#menu-box.buttonTriggered .respon-line::before{
+    transform: translateY(7px) rotate(-45deg);
+}
+
+#menu-box.buttonTriggered .respon-line::after{
+    transform: translateY(-7px) rotate(45deg);
+}
+
+.blob{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    /* z-index: 8; */
+}
+
+.blob img{
+    width: 1.5em;
+    height: 1.5em;
+}
+
+#blob-1{
+    transition: all .2s .1s ease-in-out;
+}
+
+#blob-2{
+    transition: all .2s .2s ease-in-out;
+}
+
+#blob-3{
+    transition: all .2s .3s ease-in-out;
+}
+
+#blob-4{
+    transition: all .2s .4s ease-in-out;
+}
+#menu-box.buttonTriggered #blob-1,
+#menu-box.buttonTriggered #blob-2,
+#menu-box.buttonTriggered #blob-3,
+#menu-box.buttonTriggered #blob-4{
+    visibility: visible;
+}
+
+#menu-box.buttonTriggered #blob-1{
+    /* top: 0%;
+    left: 0%; */
+    top: 120%;
+    left: 25% ;
+}
+#menu-box.buttonTriggered #blob-2{
+    /* top: 50%;
+    left: 15%; */
+    top: 170%;
+    left: 25% ;
+}
+#menu-box.buttonTriggered #blob-3{
+    /* top: 85%;
+    left: 50%; */
+    top: 120%;
+    left: 75%;
+}
+#menu-box.buttonTriggered #blob-4{
+    top: 170%;
+    left: 75%;
 }
 
 footer{
