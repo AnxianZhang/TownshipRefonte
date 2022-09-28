@@ -1,13 +1,12 @@
-* {
-  color: #f1f1f1;
+*{
+  color:  #f1f1f1;
 }
 
-#centrep {
+#centrep{
   margin-inline: 10%;
 
 }
-
-.transparent {
+.transparent{
   color: transparent;
 }
 
@@ -17,117 +16,135 @@ body {
 
 
 h1 {
-  margin-top: 0em;
-  /* padding-block: 2em; */
-  /* font-size: 4em; */
-
+  padding-bottom: 1em;
+  font-size: 4em;
+  
 }
-
 input {
-  margin-block: auto;
-  border-width: 1px;
+   margin-block : auto;
+    border-width: 1px;
 }
 
-input:invalid {
-  color: red;
-  border-color: red;
+input.actif:invalid{
+    color: red;
+    border-width: 2px;
+    border-color: red;
 }
 
 fieldset:hover {
-  border: rgba(102, 199, 255, 0.9) 0.8em solid;
+  border:  rgba(102, 199, 255,0.9) 0.8em solid;
   border-radius: 0.5em;
 
 }
-
-fieldset {
+fieldset{
+  padding-right: 1em;
   width: 50%;
   margin: 0 auto;
   transition: all 0.2s 0s ease-in-out;
 }
 
-.container>dl {
+.container >dl{
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
 }
-
-section>p {
+section > p{
   margin-left: 1em;
   font-size: x-large;
 }
-
-p {
+ p{
   display: inline;
 }
-
-.contact {
-
+.contact{
+  
   margin-top: 1em;
   margin-left: 1em;
   font-size: x-large;
 }
-
-dt {
+dt{
   margin-left: 4em;
 }
-
 dd {
-  position: relative;
+  position : relative;
   margin-left: 8em;
   margin-bottom: 1em;
 }
 
-input,
-textarea {
-
+input , textarea{
+  
   margin-left: 6em;
   resize: none;
   border-radius: 0.5em;
 }
 
-.intitule {
+.intitule{
   display: flex;
   flex-direction: column;
 }
 
-.intitule>div {
+.intitule>div{
   display: flex;
   width: 100%;
   padding-block: 0.2em;
   margin-left: 1em;
+  /*border : solid pink;*/
 
 }
-
-#zip,
-input {
+#zip, input{
   color: black;
-  height: 1.8em;
-
-
+  height:1.8em ;
+ 
+  
 }
-
-.intitule>div>div {
+.intitule >div>div{
   /*border: solid red;*/
   width: 20em;
-}
 
-form {
+  
+  
+}
+form{
   margin-bottom: 4em;
 }
-
 #submit {
   size: 2em;
   color: black;
 }
-
-#reset {
+#reset{
   color: black;
 }
 
-legend {
+legend{
+  text-align: center;
   margin: 0 auto;
   padding-inline: 0.8em;
 }
-
-hr {
+hr{
   margin-bottom: 1em;
+}
+
+@media screen and (max-width: 500px) {
+  .contact{
+    font-size: 1em;
+  }
+  .intitule>div{
+    flex-direction: column;
+  }
+  input, textarea {
+    margin-left: 1em;
+    width: 15em;
+  }
+  .radiobutton{
+    width: 1em;
+  }
+  legend{
+    padding-inline: 0;
+  }
+  dt{
+  margin-left: 2em;
+}
+dd {
+  margin-left: 4em;
+  margin-bottom: 0.5em;
+}
+
 }

@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="./img/icon.png" type="image/icon">
-
+  <link rel="icon" href="./img/icon/icon.png" type="image/icon">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="./js/form.js"></script>
   <link rel="stylesheet" href="./css/form.css">
   <link rel="stylesheet" href="./css/commun.css">
   <title>Le Grand Sud Caraïbe</title>
@@ -15,7 +16,7 @@
 <body>
   <header>
     <nav>
-      <ul>
+      <ul id="normal-nav">
         <li>
           <div class="line"></div> <a href="./index.html">Accueil</a>
         </li>
@@ -25,12 +26,12 @@
         <li>
           <div class="line"></div> <a href="#actualites">Actualités</a>
         </li>
-        <a href="./index.html"><img src="./img/icon/icon.png" id="#" alt="logo"></a>
+        <a href="#"><img src="./img/icon/icon.png" id="logo" alt="logo"></a>
         <li>
           <div class="line"></div> <a href="#elus">Les élus</a>
         </li>
         <li>
-          <div class="line"></div> <a href="">Les infos pratiques</a>
+          <div class="line"></div> <a href="./infos.html">Les infos pratiques</a>
         </li>
         <li>
           <div class="line"></div> <a href="#">Nous contacter</a>
@@ -89,7 +90,7 @@
   <hr>
   <form method="post" action="experiences.html#" accept-charset="utf-8" autocomplete="on">
     <fieldset>
-      <legend>Fiche de demande d'information</legend>
+      <legend>&nbsp;Fiche de demande d'information&nbsp;</legend>
       <br><br>
       <div id="test">
         <div class="intitule">
@@ -97,15 +98,15 @@
             <div>
               <p> Nom:<sup>*</sup></p>
             </div>
-            <input type="text" spellcheck="false" placeholder="Entrez votre nom" name="nom" autofocus="autofocus"
+            <input type="text" spellcheck="false" placeholder="Entrez votre nom" name="nom"
               required="required" pattern="(.{3,30})">
           </div>
           <div>
             <div>
               <p> Prénom:<sup>*</sup></p>
             </div>
-            <input type="text" placeholder="Entrez votre prenom" spellcheck="false" required="required" name="prenom"
-              pattern="(.{3,30})">
+            <input id="nuljsnul" type="text" placeholder="Entrez votre prenom" spellcheck="false" required="required"
+              name="prenom" pattern="(.{3,30})">
           </div>
           <div>
             <div>
@@ -138,8 +139,8 @@
             <div>
               <p> Courriel:<sup>*</sup></p>
             </div>
-            <input type="email" spellcheck="false" placeholder="PARIS-DESCARTES@exemple.com" required="required"
-              name="mail" size="28">
+            <input type="email" spellcheck="false" placeholder="PARIS-DESCARTES@ex.com" required="required" name="mail"
+              size="28">
           </div>
 
           <div>
@@ -157,33 +158,29 @@
             <div>
               <p> Recevoir une réponse par : <sup class="transparent">*</sup></p>
             </div>
-            <input type="radio" value="same" name="connaitre">
-            <p>Couriel</p>
-            <input type="radio" checked value="same" name="connaitre">
+            <div>
+            <input class = "radiobutton" type="radio" value="same" name="connaitre">
+            
+            <p>Couriel</p></div>
+            <div>
+            <input class = "radiobutton" type="radio" checked value="same" name="connaitre">
             <p>SMS</p>
+            </div>
           </div>
           <div>
-
-
             <div>
               <p>Compte Membre(si vous en possédez un):</p>
             </div>
             <input type="email" placeholder="identifiant(email)">
             <input type="password" placeholder="Mot de passe" name="password">
-
           </div>
-
           <div>
             <div></div>
             <input id="submit" onclick="alert('Une erreur est survenu lors de l\'envoie du formulaire ')" type="submit"
               title="envoyer" value="VALIDER">
             <input id="reset" type="reset" title="reset" value="RÉINITIALISER">
-
           </div>
-
         </div>
-
-
       </div>
     </fieldset>
 

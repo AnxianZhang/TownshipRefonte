@@ -127,6 +127,7 @@ nav #menu-box{
     top: 0%;
     right: 0%;
     z-index: 9;
+    visibility: hidden;
 }
 .respon-line, .respon-line::before, .respon-line::after{
     width: 25px;
@@ -270,6 +271,10 @@ footer #contact:hover{
 @media screen and (max-width: 1150px) {
     nav ul li :not(#logo), nav ul a :not(#logo){
         display: none;
+    }
+
+    nav #menu-box {
+        visibility: visible;
     }
 }
 
