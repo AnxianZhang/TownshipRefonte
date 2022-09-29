@@ -1,5 +1,6 @@
 const countriesKey = new Map();
 const polygonsKey = new Map();
+
 let countries;
 let polygons;
 

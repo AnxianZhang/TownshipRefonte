@@ -72,7 +72,6 @@ html{
 
 #activities .txt{
     margin: 3em 0em 0em 6em;
-    /* border: red solid; */
 }
 
 .frame::after, .frame::before{
@@ -137,6 +136,7 @@ html{
     #activities .txt {
         margin: 0 0;
     }
+    
     #presentation > div > p{
         width: 70%;
     }

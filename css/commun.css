@@ -120,7 +120,6 @@ nav ul li a{
 }
 
 nav #menu-box{
-    /* border: #333 solid 2px; */
     position: fixed;
     width: 4em;
     height: 4em;
@@ -129,6 +128,7 @@ nav #menu-box{
     z-index: 9;
     visibility: hidden;
 }
+
 .respon-line, .respon-line::before, .respon-line::after{
     width: 25px;
     height: 2.5px;
@@ -137,6 +137,7 @@ nav #menu-box{
     border-radius: 2.5px;
     transition: all .2s .1s ease-in-out;
 }
+
 .respon-line{
     top: 50%;
     left: 50%;
@@ -171,10 +172,8 @@ nav #menu-box{
     left: 50%;
     transform: translate(-50%, -50%);
     visibility: hidden;
-    /* display: flex; */
     justify-content: center;
     align-items: center;
-    /* z-index: 8; */
 }
 
 .blob img{
@@ -197,6 +196,7 @@ nav #menu-box{
 #blob-4{
     transition: all .2s .4s ease-in-out;
 }
+
 #menu-box.buttonTriggered #blob-1,
 #menu-box.buttonTriggered #blob-2,
 #menu-box.buttonTriggered #blob-3,
@@ -205,23 +205,20 @@ nav #menu-box{
 }
 
 #menu-box.buttonTriggered #blob-1{
-    /* top: 0%;
-    left: 0%; */
     top: 120%;
     left: 25% ;
 }
+
 #menu-box.buttonTriggered #blob-2{
-    /* top: 50%;
-    left: 15%; */
     top: 170%;
     left: 25% ;
 }
+
 #menu-box.buttonTriggered #blob-3{
-    /* top: 85%;
-    left: 50%; */
     top: 120%;
     left: 75%;
 }
+
 #menu-box.buttonTriggered #blob-4{
     top: 170%;
     left: 75%;
@@ -257,6 +254,7 @@ footer #info{
     width: 70%;
     left: 0;
 }
+
 footer #contact{
     transition: all .2s 0s ease-in-out;
     position: absolute;
@@ -264,9 +262,10 @@ footer #contact{
     bottom: 0;
     right: 0;
 }
-footer #contact:hover{
-    transform: scale(1.6);
-}
+
+.unclickable{
+    pointer-events: none;
+} 
 
 @media screen and (max-width: 1150px) {
     nav ul li :not(#logo), nav ul a :not(#logo){
