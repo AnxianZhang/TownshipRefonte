@@ -264,6 +264,10 @@ footer #contact{
 } 
 
 @media screen and (max-width: 1150px) {
+    h1{
+        font-size: 3em;
+    }
+    
     nav ul li :not(#logo), nav ul a :not(#logo){
         display: none;
     }
@@ -278,9 +282,6 @@ footer #contact{
 }
 
 @media screen and (max-width: 500px) {
-    h1{
-        font-size: 3em;
-    }
     h2{
         font-size: 2em;
     }

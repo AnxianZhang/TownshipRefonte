@@ -6,8 +6,8 @@
 }
 
 #commune-content{
-    background-color: #f5f4f0;
-    padding-block: 3%;
+      background-color: #f5f4f0;
+      padding-block: 3%;
 }
   
 #bg-img{
@@ -132,8 +132,13 @@ footer{
         font-size : 1em;
     }
     
-    #ville-left, #ville-right{
+    #ville-left{
         width: 8em;
+        padding-left: 0.5em;
+    }
+
+    #ville-right{
+        width: 6.5em;
         padding-left: 0.5em;
     }
 }
