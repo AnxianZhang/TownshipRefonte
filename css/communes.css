@@ -1,41 +1,41 @@
-body{
-  background-color : #F0F8FF;
-}
-
-h1{
-  color : #333;
-}
-
 #svg2{
-  width: 100%;
-  height: auto;
+    width: 100%;
+    min-width: 15em;
+    padding-top: 2em;
+    height: auto;
 }
 
+#commune-content{
+    background-color: #f5f4f0;
+    padding-block: 3%;
+}
+  
+#bg-img{
+    width: 100%;
+    height: 20em;
+    padding-top: 3em; 
+    background: url("../img/communes-bg.jpg") no-repeat fixed 50% 110%;
+    background-size: cover;
+}
+  
 #ville{
-  font-size : 4ch;
+    font-size : 2em;
 }
-
-.ville-name a{
-    transition: all .2s ease-in-out;
-    color: #333;
-}
-
+  
 .casbt {
-	transition: .2s fill;
+    transition: .2s fill;
     fill: #D3D3D3;
 }
-
+  
 .casbt:hover, .casbt.change-map-color {
     fill: #f0f13f;
 }
 #caca{
     width: 50em;
-    /* float: left; */
-    /* border: black solid; */
 }
 #ville-box{
     margin: auto 0px;
-    margin-top: 8%;
+    margin-top: 10em;
     width: 20em;
     height: 80%;
     padding-left: 1em;
@@ -43,31 +43,97 @@ h1{
     border-bottom-color: transparent;
     border-top-color: transparent;
     border-right-color: transparent;
-    /* float: right; */
-}
-
-#commune-content{
-    /* border: solid pink; */
-    width: auto;
-    height: 45em;
 }
 
 #commune-box{
-    /* position: absolute; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: auto auto;
     height: auto;
     width: 80%;
-    /* border: solid red; */
 }
 
-#ville>li{
+a{
+    transition: all .2s ease-in-out;
+    color: #333;
+}
+
+#ville li{
     list-style: none;
 }
 
 #test{
     height: 10em;
     width: 10em;
+}
+
+footer{
+    margin: 0;
+}
+
+@media screen and (max-width: 1425px) {
+    #ville{
+      font-size : 2em;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #ville-left, #ville-right{
+      margin: auto 0px;
+      margin-top: 0em;
+      width: 10em;
+      height: 80%;
+      padding-left: 1em;
+      border: rgb(194,134,57) solid 0.15em;
+      border-bottom-color: transparent;
+      border-top-color: transparent;
+      border-right-color: transparent;
+    }
+    
+    #ville-left{
+        float: left; 
+    }
+
+    #ville-right{
+        float: right; 
+    }
+
+    #ville-box{
+        border-left-color: transparent;
+        margin-top: 2em;
+        width: 40em;
+      
+    }
+}
+  
+@media screen and (max-width: 1150px) {
+    h1{
+        font-size : 3em;
+    }
+}
+  
+@media screen and (max-width: 690px) {
+    #ville{
+        font-size : 1.5em;
+    }
+
+    #ville-box{
+        width: auto;
+    }
+
+    #ville-left, #ville-right{
+        width: 8em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #ville{
+        font-size : 1em;
+    }
+    
+    #ville-left, #ville-right{
+        width: 8em;
+        padding-left: 0.5em;
+    }
 }

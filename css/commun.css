@@ -120,23 +120,24 @@ nav ul li a{
 }
 
 nav #menu-box{
-    /* border: #333 solid 2px; */
     position: fixed;
     width: 4em;
     height: 4em;
+    padding-right: 5%;
     top: 0%;
     right: 0%;
     z-index: 9;
     visibility: hidden;
 }
+
 .respon-line, .respon-line::before, .respon-line::after{
     width: 25px;
     height: 2.5px;
     background-color: #333;
     position: absolute;
     border-radius: 2.5px;
-    transition: all .2s .1s ease-in-out;
 }
+
 .respon-line{
     top: 50%;
     left: 50%;
@@ -165,21 +166,19 @@ nav #menu-box{
     transform: translateY(-7px) rotate(45deg);
 }
 
-.blob{
+.blob, .blob.remake{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     visibility: hidden;
-    /* display: flex; */
     justify-content: center;
     align-items: center;
-    /* z-index: 8; */
 }
 
 .blob img{
-    width: 1.5em;
-    height: 1.5em;
+    width: 3em;
+    height: 3em;
 }
 
 #blob-1{
@@ -197,6 +196,7 @@ nav #menu-box{
 #blob-4{
     transition: all .2s .4s ease-in-out;
 }
+
 #menu-box.buttonTriggered #blob-1,
 #menu-box.buttonTriggered #blob-2,
 #menu-box.buttonTriggered #blob-3,
@@ -205,26 +205,19 @@ nav #menu-box{
 }
 
 #menu-box.buttonTriggered #blob-1{
-    /* top: 0%;
-    left: 0%; */
-    top: 120%;
-    left: 25% ;
+    top: 140%;
 }
+
 #menu-box.buttonTriggered #blob-2{
-    /* top: 50%;
-    left: 15%; */
-    top: 170%;
-    left: 25% ;
+    top: 220%;
 }
+
 #menu-box.buttonTriggered #blob-3{
-    /* top: 85%;
-    left: 50%; */
-    top: 120%;
-    left: 75%;
+    top: 300%;
 }
+
 #menu-box.buttonTriggered #blob-4{
-    top: 170%;
-    left: 75%;
+    top: 380%;
 }
 
 footer{
@@ -257,6 +250,7 @@ footer #info{
     width: 70%;
     left: 0;
 }
+
 footer #contact{
     transition: all .2s 0s ease-in-out;
     position: absolute;
@@ -264,9 +258,10 @@ footer #contact{
     bottom: 0;
     right: 0;
 }
-footer #contact:hover{
-    transform: scale(1.6);
-}
+
+.unclickable{
+    pointer-events: none;
+} 
 
 @media screen and (max-width: 1150px) {
     nav ul li :not(#logo), nav ul a :not(#logo){
@@ -275,6 +270,10 @@ footer #contact:hover{
 
     nav #menu-box {
         visibility: visible;
+    }
+
+    .respon-line, .respon-line::before, .respon-line::after{
+        transition: all .2s ease-in-out;
     }
 }
 

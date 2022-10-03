@@ -1,27 +1,21 @@
 *{
-  color:  #f1f1f1;
+    color: #f1f1f1;
 }
-
-#centrep{
-  margin-inline: 10%;
-
-}
-.transparent{
-  color: transparent;
-}
-
-body {
-  background-color: #222e53;
-}
-
-
-h1 {
-  padding-bottom: 1em;
-  font-size: 4em;
   
+#centrep{
+    margin-inline: 10%;
 }
+
+.transparent{
+    color: transparent;
+}
+  
+body {
+    background-color: #222e53;
+}
+
 input {
-   margin-block : auto;
+    margin-block : auto;
     border-width: 1px;
 }
 
@@ -32,119 +26,146 @@ input.actif:invalid{
 }
 
 fieldset:hover {
-  border:  rgba(102, 199, 255,0.9) 0.8em solid;
-  border-radius: 0.5em;
-
+    border:  rgba(102, 199, 255,0.9) 0.8em solid;
+    border-radius: 0.5em;
 }
+
 fieldset{
-  padding-right: 1em;
-  width: 50%;
-  margin: 0 auto;
-  transition: all 0.2s 0s ease-in-out;
+    padding-right: 1em;
+    width: 50%;
+    margin: 0 auto;
+    transition: all 0.2s 0s ease-in-out;
 }
 
 .container >dl{
-  display: flex;
-  flex-direction:column;
-}
-section > p{
-  margin-left: 1em;
-  font-size: x-large;
-}
- p{
-  display: inline;
-}
-.contact{
-  
-  margin-top: 1em;
-  margin-left: 1em;
-  font-size: x-large;
-}
-dt{
-  margin-left: 4em;
-}
-dd {
-  position : relative;
-  margin-left: 8em;
-  margin-bottom: 1em;
+    display: flex;
+    flex-direction:column;
 }
 
-input , textarea{
+section > p{
+    margin-left: 1em;
+    font-size: x-large;
+}
+
+p{
+    display: inline;
+}
+
+.contact{
+    margin-top: 1em;
+    margin-left: 1em;
+    font-size: x-large;
+}
+
+dt{
+    margin-left: 4em;
+}
+
+dd {
+    position : relative;
+    margin-left: 8em;
+    margin-bottom: 1em;
+}
   
-  margin-left: 6em;
-  resize: none;
-  border-radius: 0.5em;
+input , textarea{
+    margin-left: 6em;
+    resize: none;
+    border-radius: 0.5em;
+}
+
+textarea{
+    width: 30em;
 }
 
 .intitule{
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .intitule>div{
-  display: flex;
-  width: 100%;
-  padding-block: 0.2em;
-  margin-left: 1em;
-  /*border : solid pink;*/
-
-}
-#zip, input{
-  color: black;
-  height:1.8em ;
- 
+    display: flex;
+    width: 100%;
+    padding-block: 0.2em;
+    margin-left: 1em;
   
+}
+
+#zip, input{
+    color: black;
+    height:1.8em ;
 }
 .intitule >div>div{
-  /*border: solid red;*/
-  width: 20em;
+    width: 18em;
+}
 
-  
-  
-}
 form{
-  margin-bottom: 4em;
+    margin-bottom: 4em;
 }
+
 #submit {
-  size: 2em;
-  color: black;
+    size: 2em;
+    color: black;
 }
+
 #reset{
-  color: black;
+    color: black;
 }
 
 legend{
-  text-align: center;
-  margin: 0 auto;
-  padding-inline: 0.8em;
+    text-align: center;
+    margin: 0 auto;
+    padding-inline: 0.8em;
 }
+
 hr{
-  margin-bottom: 1em;
+    margin-bottom: 1em;
+  
 }
+  
+@media screen and (max-width: 950px) {
+    .contact{
+        font-size: 1em;
+    }
 
-@media screen and (max-width: 500px) {
-  .contact{
-    font-size: 1em;
-  }
-  .intitule>div{
-    flex-direction: column;
-  }
-  input, textarea {
-    margin-left: 1em;
-    width: 15em;
-  }
-  .radiobutton{
-    width: 1em;
-  }
-  legend{
-    padding-inline: 0;
-  }
-  dt{
-  margin-left: 2em;
-}
-dd {
-  margin-left: 4em;
-  margin-bottom: 0.5em;
-}
+    .intitule>div{
+        flex-direction: column;
+    }
 
+    input, textarea {
+        margin-left: 1em;
+        width: 15em;
+    }
+
+    .radiobutton{
+        width: 1em;
+    }
+
+    legend{
+        padding-inline: 0;
+    }
+
+    dt{
+        margin-left: 2em;
+    }
+
+    h1{
+        font-size: 3em;
+    }
+
+    h2{
+        font-size: 2em;
+    }
+
+    h3{
+        font-size: 1.5em;
+    }
+
+    p{
+        font-size: 1em;
+    }
+  
+    footer img{
+        width: 1.5em;
+        height: 1.5em;
+    }
 }
