@@ -120,10 +120,10 @@ nav ul li a{
 }
 
 nav #menu-box{
+  /*border: solid red;*/
     position: fixed;
     width: 4em;
     height: 4em;
-    padding-right: 5%;
     top: 0%;
     right: 0%;
     z-index: 9;
@@ -177,30 +177,42 @@ nav #menu-box{
 }
 
 .blob img{
+    background-color: rgb(102, 199, 255);
+    border-radius: 40%;
     width: 3em;
     height: 3em;
 }
 
 #blob-1{
-    transition: all .2s .1s ease-in-out;
+    transition: all .2s .15s ease-in-out;
 }
 
 #blob-2{
-    transition: all .2s .2s ease-in-out;
+    transition: all .2s .20s ease-in-out;
 }
 
 #blob-3{
-    transition: all .2s .3s ease-in-out;
+    transition: all .2s .25s ease-in-out;
 }
 
 #blob-4{
-    transition: all .2s .4s ease-in-out;
+    transition: all .2s .30s ease-in-out;
+}
+
+#blob-5{
+    transition: all .2s .35s ease-in-out;
+}
+
+#blob-6{
+    transition: all .2s .40s ease-in-out;
 }
 
 #menu-box.buttonTriggered #blob-1,
 #menu-box.buttonTriggered #blob-2,
 #menu-box.buttonTriggered #blob-3,
-#menu-box.buttonTriggered #blob-4{
+#menu-box.buttonTriggered #blob-4,
+#menu-box.buttonTriggered #blob-5,
+#menu-box.buttonTriggered #blob-6{
     visibility: visible;
 }
 
@@ -218,6 +230,14 @@ nav #menu-box{
 
 #menu-box.buttonTriggered #blob-4{
     top: 380%;
+}
+
+#menu-box.buttonTriggered #blob-5{
+    top: 460%;
+}
+
+#menu-box.buttonTriggered #blob-6{
+    top: 540%;
 }
 
 footer{
@@ -267,7 +287,7 @@ footer #contact{
     h1{
         font-size: 3em;
     }
-    
+  
     nav ul li :not(#logo), nav ul a :not(#logo){
         display: none;
     }
@@ -285,9 +305,11 @@ footer #contact{
     h2{
         font-size: 2em;
     }
+  
     h3{
         font-size: 1.5em;
     }
+  
     p{
         font-size: 1em;
     }
