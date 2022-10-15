@@ -1,13 +1,13 @@
-#svg2{
+#svg{
     width: 100%;
     min-width: 15em;
     padding-top: 2em;
     height: auto;
 }
-
+  
 #commune-content{
-      background-color: #f5f4f0;
-      padding-block: 3%;
+    background-color: #f5f4f0;
+    padding-block: 3%;
 }
   
 #bg-img{
@@ -17,22 +17,24 @@
     background: url("../img/communes-bg.jpg") no-repeat fixed 50% 110%;
     background-size: cover;
 }
-  
+
 #ville{
     font-size : 2em;
 }
-  
+
 .casbt {
     transition: .2s fill;
     fill: #D3D3D3;
 }
-  
+
 .casbt:hover, .casbt.change-map-color {
     fill: #f0f13f;
 }
-#caca{
+
+#map{
     width: 50em;
 }
+
 #ville-box{
     margin: auto 0px;
     margin-top: 10em;
@@ -68,34 +70,30 @@
     list-style: none;
 }
 
-#test{
-    height: 10em;
-    width: 10em;
-}
-
 footer{
     margin: 0;
 }
 
 @media screen and (max-width: 1425px) {
     #ville{
-      font-size : 2em;
-      display: flex;
-      justify-content: space-between;
+        font-size : 2em;
+        display: flex;
+        justify-content: space-between;
     }
 
     #ville-left, #ville-right{
-      margin: auto 0px;
-      margin-top: 0em;
-      width: 10em;
-      height: 80%;
-      padding-left: 1em;
-      border: rgb(194,134,57) solid 0.15em;
-      border-bottom-color: transparent;
-      border-top-color: transparent;
-      border-right-color: transparent;
+        margin: auto 0px;
+        margin-top: 0em;
+        width: 10em;
+        height: 80%;
+        padding-left: 1em;
+        border: rgb(194,134,57) solid 0.15em;
+        border-bottom-color: transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+
     }
-    
+
     #ville-left{
         float: left; 
     }
@@ -108,15 +106,10 @@ footer{
         border-left-color: transparent;
         margin-top: 2em;
         width: 40em;
+            
     }
 }
-  
-@media screen and (max-width: 1150px) {
-    h1{
-        font-size : 3em;
-    }
-}
-  
+
 @media screen and (max-width: 690px) {
     #ville{
         font-size : 1.5em;
@@ -135,13 +128,13 @@ footer{
     #ville{
         font-size : 1em;
     }
-    
-    #ville-left{
+
+    #ville #ville-left{
         width: 8em;
         padding-left: 0.5em;
     }
 
-    #ville-right{
+    #ville #ville-right{
         width: 6.5em;
         padding-left: 0.5em;
     }
