@@ -28,12 +28,10 @@ const toPolygons = () =>{
     let countrieLinks = Array.from(document.querySelectorAll(".ville-name a"));
     polygons.forEach(polygon => {
         polygon.addEventListener("mouseover", () => {
-            countrieLinks[polygonsKey.get(polygon)].style.color = "rgb(194,134,57)";
-            countrieLinks[polygonsKey.get(polygon)].style.fontWeight = "bold";
+            countrieLinks[polygonsKey.get(polygon)].classList.add("triggered");
         });
         polygon.addEventListener("mouseleave", () => {
-            countrieLinks[polygonsKey.get(polygon)].style.color = "#333";
-            countrieLinks[polygonsKey.get(polygon)].style.fontWeight = "normal";
+            countrieLinks[polygonsKey.get(polygon)].classList.remove("triggered");
         });
     });
 }

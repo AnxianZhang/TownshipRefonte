@@ -54,9 +54,14 @@
     width: 80%;
 }
 
-a{
+#ville a{
     transition: all .2s ease-in-out;
     color: #333;
+}
+
+#ville a:hover, #ville a.triggered{
+    color: rgb(194,134,57);
+    font-weight: bold;
 }
 
 #ville li{
@@ -103,7 +108,6 @@ footer{
         border-left-color: transparent;
         margin-top: 2em;
         width: 40em;
-      
     }
 }
   
