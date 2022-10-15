@@ -17,6 +17,8 @@ const startEvent = () => {
     blobs[1] = $("#blob-2");
     blobs[2] = $("#blob-3");
     blobs[3] = $("#blob-4");
+    blobs[4] = $("#blob-5");
+    blobs[5] = $("#blob-6");
 
     addEventToMenu();
 }
