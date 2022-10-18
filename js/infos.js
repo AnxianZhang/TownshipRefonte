@@ -1,88 +1,112 @@
-var ar;
-var tr;
-var lc;
-var ce;
-var gauche;
-var droite;
-var haut;
-var bas;
-var basB;
-var largeur;
+const defaultWidth = "30em", defaultHeight = "3em";
+let auto, tarifs, compteur, conseil;
+let allSubBox;
 
-$(init);
-
-function init() {
-    ar = $("#AutoReleve");
-    tr = $("#TarifsReglement");
-    lc = $("#LireCompteur");
-    ce = $("#ConseilExplo");
-    gauche = $(".smallBlockG");
-    droite = $(".smallBlockD");
-    haut = $("#bHaut div");
-    bas = $("#bBas div");
-    basB = $("#bBas");
-    largeur = ar.width();
-
-    ar.hover(hover1, quit1);
-    tr.hover(hover2, quit2);
-    lc.hover(hover3, quit3);
-    ce.hover(hover4, quit4);
+const initToDefault = () =>{
+    allSubBox.on("mouseleave", () =>{
+        allSubBox.css("width", defaultWidth);
+        allSubBox.css("height", defaultHeight);
+    });
 }
 
-function hover1() {
-    haut.css("height", "13em")
-    gauche.width(1.3 * largeur)
-    gauche.css("margin-right", "0%")
-    basB.css("margin-top", "2em")
-    //$("#AutoReleve h2 a").css("color", "red")
+const addHoverEventToInfos = () =>{
+    initToDefault();
+    auto.on("mouseenter", () =>{
+        auto.css("width", "38em");
+        auto.css("height", "13em");
+
+        tarifs.css("width", "22em");
+        tarifs.css("height", "13em");
+        compteur.css("width", "38em");
+        conseil.css("width", "22em");
+
+        conseil.css("height", "6em");
+        compteur.css("height", "6em");
+        conseil.css("height", "3em");
+        compteur.css("height", "3em");
+    });
+
+    tarifs.on("mouseenter", () =>{
+        tarifs.css("width", "38em");
+        tarifs.css("height", "13em");
+
+        auto.css("width", "22em");
+        auto.css("height", "13em");
+        conseil.css("width", "38em");
+        compteur.css("width", "22em");
+
+        conseil.css("height", "6em");
+        compteur.css("height", "6em");
+        conseil.css("height", "3em");
+        compteur.css("height", "3em");
+    });
+
+    compteur.on("mouseenter", () =>{
+        compteur.css("width", "38em");
+        compteur.css("height", "13em");
+
+        conseil.css("width", "22em");
+        conseil.css("height", "13em");
+        auto.css("width", "38em");
+        tarifs.css("width", "22em");
+
+        tarifs.css("height", "6em");
+        auto.css("height", "6em");
+        tarifs.css("height", "3em");
+        auto.css("height", "3em");
+    });
+
+    conseil.on("mouseenter", () =>{
+        conseil.css("width", "38em");
+        conseil.css("height", "13em");
+
+        compteur.css("width", "22em");
+        compteur.css("height", "13em");
+        tarifs.css("width", "38em");
+        auto.css("width", "22em");
+
+        tarifs.css("height", "6em");
+        auto.css("height", "6em");
+        tarifs.css("height", "3em");
+        auto.css("height", "3em");
+    });
 }
 
-function quit1() {
-    haut.css("height", "5em")
-    gauche.width(largeur)
-    gauche.css("margin-right", "2.5%")
-    basB.css("margin-top", "4em")
-    //$("#AutoReleve h2 a").css("color", "black")
+const removeEvent = item =>{
+    item.off("mouseenter");
+    item.mouseleave();
+    item.off("mouseleave");
+    item.css("width", "auto");
 }
 
-function hover2() {
-    haut.css("height", "13em")
-    droite.width(1.3 * largeur)
-    droite.css("margin-left", "0%")
-    basB.css("margin-top", "2em")
+const initInfos = () =>{
+    auto = $("#auto");
+    tarifs = $("#tarifs");
+    compteur = $("#compteur");
+    conseil = $("#conseil");
+    allSubBox = $(".sub-content-box");
+    
+    if ($(window).width() > 1001)
+        addHoverEventToInfos();
+    else{
+        allSubBox.css("height", "10em");
+    }
+
+    $(window).on("resize", () => {
+        if ($(window).width() < 1001){
+            removeEvent(auto);
+            removeEvent(tarifs);
+            removeEvent(compteur);
+            removeEvent(conseil);
+            allSubBox.css("width", "auto");
+            allSubBox.css("height", "10em");
+        }
+        else{
+            addHoverEventToInfos();
+            allSubBox.css("height", "3em");
+            allSubBox.css("width", defaultWidth);
+        }
+    });
 }
 
-function quit2() {
-    haut.css("height", "5em")
-    droite.width(largeur)
-    droite.css("margin-left", "2.5%")
-    basB.css("margin-top", "4em")
-}
-
-function hover3() {
-    bas.css("height", "13em")
-    gauche.width(1.3 * largeur)
-    gauche.css("margin-right", "0%")
-    basB.css("margin-top", "2em")
-}
-
-function quit3() {
-    bas.css("height", "5em")
-    gauche.width(largeur)
-    gauche.css("margin-right", "2.5%")
-    basB.css("margin-top", "4em")
-}
-
-function hover4() {
-    bas.css("height", "13em")
-    droite.width(1.3 * largeur)
-    droite.css("margin-left", "0%")
-    basB.css("margin-top", "2em")
-}
-
-function quit4() {
-    bas.css("height", "5em")
-    droite.width(largeur)
-    droite.css("margin-left", "2.5%")
-    basB.css("margin-top", "4em")
-}
+$(window).ready(initInfos);
