@@ -4,27 +4,27 @@ const polygonsKey = new Map();
 let countries;
 let polygons;
 
-const setCountriesKey = () =>{
+const setCountriesKey = () => {
     let idx = 0;
     countries.forEach(countrie => {
         countriesKey.set(countrie.textContent, idx);
-        polygonsKey.set(polygons[idx], idx); 
+        polygonsKey.set(polygons[idx], idx);
         ++idx;
     });
 }
 
-const toCountries = () =>{
+const toCountries = () => {
     countries.forEach(countrie => {
         countrie.addEventListener("mouseover", () => {
-          polygons[countriesKey.get(countrie.textContent)].classList.add("change-map-color");
+            polygons[countriesKey.get(countrie.textContent)].classList.add("change-map-color");
         });
         countrie.addEventListener("mouseleave", () => {
-          polygons[countriesKey.get(countrie.textContent)].classList.remove("change-map-color");
+            polygons[countriesKey.get(countrie.textContent)].classList.remove("change-map-color");
         });
     });
 }
 
-const toPolygons = () =>{
+const toPolygons = () => {
     let countrieLinks = Array.from(document.querySelectorAll(".ville-name a"));
     polygons.forEach(polygon => {
         polygon.addEventListener("mouseover", () => {
@@ -36,12 +36,12 @@ const toPolygons = () =>{
     });
 }
 
-const addEvent = () =>{
+const addEvent = () => {
     toCountries();
     toPolygons();
 }
 
-const start = () =>{
+const start = () => {
     setCountriesKey();
     addEvent();
 }

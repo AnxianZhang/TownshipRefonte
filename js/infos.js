@@ -2,16 +2,16 @@ const defaultWidth = "30em", defaultHeight = "3em";
 let auto, tarifs, compteur, conseil;
 let allSubBox;
 
-const initToDefault = () =>{
-    allSubBox.on("mouseleave", () =>{
+const initToDefault = () => {
+    allSubBox.on("mouseleave", () => {
         allSubBox.css("width", defaultWidth);
         allSubBox.css("height", defaultHeight);
     });
 }
 
-const addHoverEventToInfos = () =>{
+const addHoverEventToInfos = () => {
     initToDefault();
-    auto.on("mouseenter", () =>{
+    auto.on("mouseenter", () => {
         auto.css("width", "38em");
         auto.css("height", "13em");
 
@@ -26,7 +26,7 @@ const addHoverEventToInfos = () =>{
         compteur.css("height", "3em");
     });
 
-    tarifs.on("mouseenter", () =>{
+    tarifs.on("mouseenter", () => {
         tarifs.css("width", "38em");
         tarifs.css("height", "13em");
 
@@ -41,7 +41,7 @@ const addHoverEventToInfos = () =>{
         compteur.css("height", "3em");
     });
 
-    compteur.on("mouseenter", () =>{
+    compteur.on("mouseenter", () => {
         compteur.css("width", "38em");
         compteur.css("height", "13em");
 
@@ -56,7 +56,7 @@ const addHoverEventToInfos = () =>{
         auto.css("height", "3em");
     });
 
-    conseil.on("mouseenter", () =>{
+    conseil.on("mouseenter", () => {
         conseil.css("width", "38em");
         conseil.css("height", "13em");
 
@@ -72,28 +72,28 @@ const addHoverEventToInfos = () =>{
     });
 }
 
-const removeEvent = item =>{
+const removeEvent = item => {
     item.off("mouseenter");
     item.mouseleave();
     item.off("mouseleave");
     item.css("width", "auto");
 }
 
-const initInfos = () =>{
+const initInfos = () => {
     auto = $("#auto");
     tarifs = $("#tarifs");
     compteur = $("#compteur");
     conseil = $("#conseil");
     allSubBox = $(".sub-content-box");
-    
+
     if ($(window).width() > 1001)
         addHoverEventToInfos();
-    else{
+    else {
         allSubBox.css("height", "10em");
     }
 
     $(window).on("resize", () => {
-        if ($(window).width() < 1001){
+        if ($(window).width() < 1001) {
             removeEvent(auto);
             removeEvent(tarifs);
             removeEvent(compteur);
@@ -101,7 +101,7 @@ const initInfos = () =>{
             allSubBox.css("width", "auto");
             allSubBox.css("height", "10em");
         }
-        else{
+        else {
             addHoverEventToInfos();
             allSubBox.css("height", "3em");
             allSubBox.css("width", defaultWidth);

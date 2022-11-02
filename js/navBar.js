@@ -38,7 +38,7 @@ $(window).on("resize", () => {
             blobs[i].css("transition", "none");
     }
 
-    if ($(window).width() >= 1150 && $("#menu-box .blob").eq(0).css("visibility") == "visible") {
+    if ($(window).width() >= 1150 && blobs[0].css("visibility") == "visible") {
         disablBlobTransistion();
         myMenuButton.click();
     }

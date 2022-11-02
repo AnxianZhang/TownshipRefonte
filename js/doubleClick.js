@@ -21,8 +21,8 @@ const communesLinkts = [
 ];
 
 const addDoubleClick = () => {
-    objectToDouble.forEach(object =>{
-        object.addEventListener("dblclick", () =>{
+    objectToDouble.forEach(object => {
+        object.addEventListener("dblclick", () => {
             if (objectToDouble.length == 3) // the 3 means there are 3 images on the home page
                 window.open(homeLinks[objectToDoubleMap.get(object)], "_blank");
             else
@@ -33,7 +33,7 @@ const addDoubleClick = () => {
 
 const addMyEvent = () => {
     let idx = 0;
-    objectToDouble.forEach(object =>{
+    objectToDouble.forEach(object => {
         objectToDoubleMap.set(object, idx);
         ++idx;
     });

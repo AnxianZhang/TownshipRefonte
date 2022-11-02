@@ -9,90 +9,86 @@ h1 {
     color: #f1f1f1;
 }
 
-.important-box:hover p, .sub-content-box:hover > p{
+.important-box:hover p,
+.sub-content-box:hover>p {
     visibility: visible;
     color: #333;
-    /* display: flex; */
 }
 
-.content-box{
+.content-box {
     height: 31em;
 }
 
-.content-box ul{
+.content-box ul {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    /* display: none; */
     visibility: hidden;
 }
 
-.content-box p{
+.content-box p {
     text-align: center;
     visibility: hidden;
     color: rgb(176, 242, 182, 0.7);
     transition: all 0.2s .1s ease-in-out;
-    /* display: none; */
 }
 
-.content-box li{
+.content-box li {
     list-style-type: none;
 }
 
-#hub h3{
+#hub h3 {
     text-align: center;
 }
 
-.content-box .important-box, .content-box > div > .sub-content-box{
+.content-box .important-box,
+.content-box>div>.sub-content-box {
     background-color: rgb(176, 242, 182, 0.7);
     transition: all .2s .1s ease-in-out;
-    height: 3em; /*ici pour la taille des div*/
+    height: 3em;
     border: #333 2px solid;
     border-radius: .67em;
 }
 
-.content-box .important-box:hover, .content-box .flex-column .sub-content-box:hover{
+.content-box .important-box:hover,
+.content-box .flex-column .sub-content-box:hover {
     height: 13em;
 }
 
-.content-box .important-box{
+.content-box .important-box {
     width: 60em;
-    /* border: black 2px solid; */
 }
 
-.content-box > div{
-    /* border: solid yellow 2px; */
+.content-box>div {
     transition: all .2s .1s ease-in-out;
     margin: 3em;
     display: flex;
     justify-content: center;
 }
 
-.content-box > div.flex-column > .sub-content-box {
-    /* border: 2px green solid; */
+.content-box>div.flex-column>.sub-content-box {
     width: 30em;
 }
 
 @media screen and (max-width: 1000px) {
-    .content-box{
+    .content-box {
         height: 75em;
     }
 
-    .content-box > .flex-column{
+    .content-box>.flex-column {
         flex-direction: column;
     }
 
-    .content-box > div.flex-column > .sub-content-box{
-        /* margin-top: 1em; */
+    .content-box>div.flex-column>.sub-content-box {
         width: auto;
-        /* height: 3.5em; */
     }
-    
-    .content-box > .flex-column > .sub-content-box:first-child{
+
+    .content-box>.flex-column>.sub-content-box:first-child {
         margin-bottom: 3em;
     }
 
-    .content-box .important-box, .content-box > div > .sub-content-box{
+    .content-box .important-box,
+    .content-box>div>.sub-content-box {
         height: 4em;
     }
 }
