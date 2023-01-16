@@ -2,7 +2,7 @@
 
 ## Note: 17/20
 
-### IDE utilisé: Visual Studio code et Relit
+### IDE utilisé: Visual Studio code et Replit
 
 ### Contexte:
 Dans le cadre de notre deuxième année en BUT nous avons dû réaliser dans un premier temps la refonte d'un site d'agglomération.
