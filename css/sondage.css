@@ -1,0 +1,113 @@
+p {
+    margin: 1.5em 1.5em 3em;
+}
+
+h1 {
+    color: black;
+}
+
+form.search {
+    margin: 0 1.5em 1.5em;
+}
+
+form.search input[type=text] {
+    float: left;
+    width: 300px;
+    height: 40px;
+    border: 1px solid black;
+    padding-left: 20px;
+    box-sizing: border-box;
+    /* background: rgba(217, 217, 217, 1); */
+}
+
+form.search input[type=submit] {
+    height: 40px;
+    width: 35px;
+    border: none;
+    font-size: 15px;
+    border: 1px solid black;
+    border-left: none;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#filtre {
+    flex: 1 1 120px;
+    border: 1px solid black;
+    /* background: rgba(217, 217, 217, 1); */
+    height: 300px;
+    margin: calc(1.5em + 40px) 1.5em 1.5em;
+    padding: 0.5em;
+}
+
+#filtre div {
+    margin-left: 0.5em;
+}
+
+#cright {
+    flex: 4 1 auto;
+}
+
+#choix {
+    padding: 0.5em;
+    border: 1px solid black;
+    margin: 1em 1.5em;
+    height: 300px;
+}
+
+.multicol {
+    border: 1px solid black;
+    margin: 0.5em;
+    height: 20px;
+    padding: 2px;
+}
+
+#pres {
+    margin: 2em 1em 0;
+}
+
+#resultat {
+    height: 100px;
+    border: 1px solid black;
+    margin: 0 1.5em 0em;
+}
+
+#bres {
+    border-radius: 84px;
+    padding: 3px;
+    background: rgba(229, 38, 38, 0.68);
+    margin: 0.5em 1.5em 3em;
+}
+
+.ligne {
+    width: 65%;
+    height: 1px;
+    border-top: solid black 1px;
+    margin: 1em auto 1em;
+}
+
+#infop {
+    text-align: center;
+}
+
+#hspe{
+    font-family: 'Oooh Baby', cursive;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+#env{
+    float: right;
+    margin: 1.5em;
+    border-radius: 84px;
+    padding: 3px;
+    background: rgba(66, 197, 72, 0.79);
+}
+
+footer{
+    margin-top: 5em;
+}

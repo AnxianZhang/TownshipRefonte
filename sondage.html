@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icon/icon.png" type="image/icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script src="./js/communes.js"> </script>
+    <script src="./js/navBar.js"> </script>
+    <script src="./js/doubleClick.js"> </script>
+
+    <link rel="stylesheet" href="./css/commun.css">
+    <link rel="stylesheet" href="./css/sondage.css">
+    <title>Le Grand Sud Caraïbe</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul id="normal-nav">
+                <li>
+                    <div class="line"></div> <a href="./index.html">Accueil</a>
+                </li>
+                <li>
+                    <div class="line"></div> <a href="./communes.html">Les communes membres</a>
+                </li>
+                <li>
+                    <div class="line"></div> <a href="#actualites">Actualités</a>
+                </li>
+                <a href="#"><img src="./img/icon/icon.png" id="logo" alt="logo"></a>
+                <li>
+                    <div class="line"></div> <a href="#elus">Les élus</a>
+                </li>
+                <li>
+                    <div class="line"></div> <a href="./infos.html">Les infos pratiques</a>
+                </li>
+                <li>
+                    <div class="line"></div> <a href="./contact.html">Nous contacter</a>
+                </li>
+                <a title="login" id="login"><img src="./img/icon/login.png" alt="login"></a>
+            </ul>
+            <div id="menu-box">
+                <div id="button-menu" class="icon">
+                    <div class="respon-line"></div>
+                </div>
+                <div id="blob-1" class="blob"><a href="./index.html"><img src="./img/icon/home.png" alt="home"
+                            class="icon"></a>
+                </div>
+                <div id="blob-2" class="blob"><a href="#"><img src="./img/icon/pin.png" alt="map" class="icon"></a>
+                </div>
+                <div id="blob-3" class="blob"><a href="#actualites"><img src="./img/icon/news.png" alt="actu"
+                            class="icon"></a>
+                </div>
+                <div id="blob-4" class="blob"><a href="#elus"><img src="./img/icon/icon-elus.png" alt="elus"
+                            class="icon"></a>
+                </div>
+                <div id="blob-5" class="blob"><a href="./infos.html"><img src="./img/icon/clipboard.png" alt="info"
+                            class="icon"></a></div>
+                <div id="blob-6" class="blob"><a href="./contact.html"><img src="./img/icon/contact.png" alt="contact"
+                            class="icon"></a></div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="fixe-to-top">
+        <h1>Sondage</h1>
+        <p>Afin de mieux comprendre les habitudes alimentaires de notre communauté, nous avons créé un sondage pour
+            recueillir vos réponses sur vos choix alimentaires quotidiens. Nous vous invitons à prendre quelques minutes
+            pour y répondre.</p>
+    </div>
+    <div class="flex">
+        <div id="filtre">
+            <!-- <fieldset> -->
+            <legend>Filtres :</legend>
+            <br>
+            <div>
+                <input type="checkbox" id="legumes" name="" checked>
+                <label for="legumes">Légumes</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="viande" name="">
+                <label for="viande">Viande</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="plait" name="">
+                <label for="plait">Produit laitier</label>
+            </div>
+            <!-- </fieldset> -->
+        </div>
+        <div id="cright">
+            <form class="search" action="XXXXX.php" method="get">
+                <input type="text" name="" placeholder="Rechercher un aliment ...." />
+                <input type="submit" value="Go" />
+            </form>
+            <div id="choix" class="flex">
+                <div class="multicol">dsfdsf</div>
+                <div class="multicol">dsfdjbjh</div>
+                <div class="multicol">dsfdsf</div>
+                <div class="multicol">dsfdjbjh</div>
+                <div class="multicol">dsfdsf</div>
+                <div class="multicol">dsfdjbjh</div>
+                <div class="multicol">dsfdsf</div>
+                <div class="multicol">dsfdjbjh</div>
+            </div>
+            <div>
+                <p id="pres">Mes aliments :</p>
+                <div id="resultat" class="flex"></div>
+                <button id="bres">Effacer tout</button>
+            </div>
+        </div>
+    </div>
+    <div class="ligne"></div>
+    <div id="infop">
+        <h3 id="hspe">Informations personnelles</h3>
+        Nom<br>
+        <input type="text" name=" ">
+        <br>
+        Prénom<br>
+        <input type="text" name=" ">
+        <br>
+        Age <span style="color:red;">* </span><br>
+        <input type="text" name=" "><br><br><span style="color:red;">* </span> champ obligatoire
+    </div>
+    <button id="env">Envoyer</button>
+    <footer>
+        <div>
+            <div id="info">
+                <h3>Le Grand Sud Caraïbe</h3><br>
+                <div id="address">
+                    <img src="./img/icon/position.png" alt="position">
+                    <p>Place du Père-Magloire 97100 Basse-Terre</p>
+                </div><br>
+                <div id="time">
+                    <img src="./img/icon/clock.png" alt="clock">
+                    <p>Horaire d'ouverture: Du lundi au vendredi, de 7h30 à 13h00 et jusqu'à 17h pour certains jours</p>
+                </div>
+            </div>
+            <div id="contact">
+                <div>
+                    <a href="./contact.html"><img src="./img/icon/contact.png" alt="contact" title="Contactez nous"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

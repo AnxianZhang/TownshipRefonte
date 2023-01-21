@@ -26,6 +26,15 @@ header{
     z-index: 10;
 }
 
+#iconsdag{
+    position: fixed;
+    top: 50%;
+    left: 1em;
+    background-color: rgb(102, 199, 255);
+    border-radius: 50px;
+    z-index: 11;
+}
+
 h1, h2{
     font-family: 'Oooh Baby', cursive;
 }
