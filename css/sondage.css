@@ -48,7 +48,7 @@ form.search input[type=submit] {
     margin-left: 0.5em;
 }
 
-#cright {
+#choixright {
     flex: 4 1 auto;
 }
 
@@ -59,14 +59,14 @@ form.search input[type=submit] {
     height: 300px;
 }
 
-.multicol {
+#choix div {
     border: 1px solid black;
     margin: 0.5em;
     height: 20px;
     padding: 2px;
 }
 
-#pres {
+#choixpres {
     margin: 2em 1em 0;
 }
 
@@ -76,9 +76,9 @@ form.search input[type=submit] {
     margin: 0 1.5em 0em;
 }
 
-#bres {
+#effacer {
     border-radius: 84px;
-    padding: 3px;
+    padding: 3px 7px;
     background: rgba(229, 38, 38, 0.68);
     margin: 0.5em 1.5em 3em;
 }
@@ -90,24 +90,49 @@ form.search input[type=submit] {
     margin: 1em auto 1em;
 }
 
-#infop {
-    text-align: center;
-}
-
-#hspe{
+#titreinfopers {
     font-family: 'Oooh Baby', cursive;
     text-align: center;
     margin-bottom: 0.5em;
 }
 
-#env{
+#infopers {
+    margin: auto;
+    width: fit-content;
+}
+
+#infopers label {
+    font-family: 'Cambay';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 10px;
+    padding-left: 5px;
+}
+
+#infopers input {
+    border-radius: 7px;
+}
+
+#inputage {
+    width: 3em;
+    float: left;
+}
+
+#champo {
+    font-size:x-small;
     float: right;
-    margin: 1.5em;
+    padding: 0;
+}
+
+#env {
+    font-weight: 700;
+    float: right;
+    margin: 0 5em 0 auto;
     border-radius: 84px;
-    padding: 3px;
+    padding: 5px 20px;
     background: rgba(66, 197, 72, 0.79);
 }
 
-footer{
+footer {
     margin-top: 5em;
 }

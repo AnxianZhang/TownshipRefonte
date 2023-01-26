@@ -92,41 +92,51 @@
             </div>
             <!-- </fieldset> -->
         </div>
-        <div id="cright">
+        <div id="choixright">
             <form class="search" action="XXXXX.php" method="get">
                 <input type="text" name="" placeholder="Rechercher un aliment ...." />
                 <input type="submit" value="Go" />
             </form>
             <div id="choix" class="flex">
-                <div class="multicol">dsfdsf</div>
-                <div class="multicol">dsfdjbjh</div>
-                <div class="multicol">dsfdsf</div>
-                <div class="multicol">dsfdjbjh</div>
-                <div class="multicol">dsfdsf</div>
-                <div class="multicol">dsfdjbjh</div>
-                <div class="multicol">dsfdsf</div>
-                <div class="multicol">dsfdjbjh</div>
+                <div>dsfdsf</div>
+                <div>dsfdjbjh</div>
+                <div>dsfdsf</div>
+                <div>dsfdjbjh</div>
+                <div>dsfdsf</div>
+                <div>dsfdjbjh</div>
+                <div>dsfdsf</div>
+                <div>dsfdjbjh</div>
             </div>
             <div>
-                <p id="pres">Mes aliments :</p>
+                <p id="choixpres">Mes aliments :</p>
                 <div id="resultat" class="flex"></div>
-                <button id="bres">Effacer tout</button>
+                <button id="effacer">Effacer tout</button>
             </div>
         </div>
     </div>
     <div class="ligne"></div>
-    <div id="infop">
-        <h3 id="hspe">Informations personnelles</h3>
-        Nom<br>
-        <input type="text" name=" ">
-        <br>
-        Prénom<br>
-        <input type="text" name=" ">
-        <br>
-        Age <span style="color:red;">* </span><br>
-        <input type="text" name=" "><br><br><span style="color:red;">* </span> champ obligatoire
+    <div>
+        <h3 id="titreinfopers">Informations personnelles</h3>
+        <div id="infopers">
+
+            <label>Nom</label><br>
+            <input type="text" name=" ">
+            <br>
+
+            <label>Prénom</label><br>
+            <input type="text" name=" ">
+            <br>
+
+            <label>Age</label><span style="color:red;">* </span><br>
+            <input id="inputage" type="text" name=" ">
+            <p id="champo"><span style="color:red;">* </span>
+                champ obligatoire
+            </p>
+            <br><br><br>
+        </div>
+
+        <button id="env">Envoyer</button>
     </div>
-    <button id="env">Envoyer</button>
     <footer>
         <div>
             <div id="info">
