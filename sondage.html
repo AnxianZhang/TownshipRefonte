@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="icon" href="./img/icon/icon.png" type="image/icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
@@ -93,19 +94,20 @@
             <!-- </fieldset> -->
         </div>
         <div id="choixright">
-            <form class="search" action="XXXXX.php" method="get">
-                <input type="text" name="" placeholder="Rechercher un aliment ...." />
-                <input type="submit" value="Go" />
-            </form>
+            <div class="boxsearch">
+                <span class="icon"><i class="fa fa-search"></i></span>
+                <input type="search" id="search" placeholder="Rechercher un aliment ...." />
+            </div>
+
             <div id="choix" class="flex">
-                <div>dsfdsf</div>
-                <div>dsfdjbjh</div>
-                <div>dsfdsf</div>
-                <div>dsfdjbjh</div>
-                <div>dsfdsf</div>
-                <div>dsfdjbjh</div>
-                <div>dsfdsf</div>
-                <div>dsfdjbjh</div>
+                <button>dsfdsf</button>
+                <button>dsfdjbjh</button>
+                <button>dsfdsf</button>
+                <button>dsfdjbjh</button>
+                <button>dsfdsf</button>
+                <button>dsfdjbjh</button>
+                <button>dsfdsf</button>
+                <button>dsfdjbjh</button>
             </div>
             <div>
                 <p id="choixpres">Mes aliments :</p>
@@ -120,15 +122,15 @@
         <div id="infopers">
 
             <label>Nom</label><br>
-            <input type="text" name=" ">
+            <input type="text" name=" " oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
             <br>
 
             <label>Prénom</label><br>
-            <input type="text" name=" ">
+            <input type="text" name=" " oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
             <br>
 
             <label>Age</label><span style="color:red;">* </span><br>
-            <input id="inputage" type="text" name=" ">
+            <input id="inputage" type="text" name=" " oninput = "value=value.replace(/[^\d]/g,'')" maxlength="3">
             <p id="champo"><span style="color:red;">* </span>
                 champ obligatoire
             </p>
