@@ -7,6 +7,7 @@
 
             if ($commande->execute()){
                 $result = $commande->fetchAll(PDO::FETCH_ASSOC);
+                echo json_encode($result);
                 // var_dump($result);
                 // die();
             }
@@ -14,5 +15,4 @@
             echo utf8_encode("Echec de la requete SQL dans creerAutoFiltre" . $e->getMessage() . "\n");
             die();
         }
-        echo json_encode($result);
 ?>
