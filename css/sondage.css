@@ -31,12 +31,13 @@ h1 {
 
 .boxsearch input#search:placeholder-shown {
     font-style: italic;
+    font-size: 1em;
 }
 
 .boxsearch .icon {
     position: absolute;
     margin-left: 17px;
-    margin-top: 11px;
+    margin-top: 10px;
     z-index: 1;
 }
 
@@ -78,6 +79,10 @@ h1 {
 #filtre input[type="checkbox"] {
     width: 2em;
     height: 2em;
+}
+
+#filtre label {
+    align-self: center;
 }
 
 #choixright {
