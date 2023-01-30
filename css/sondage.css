@@ -10,6 +10,14 @@ h1 {
     color: black;
 }
 
+.fa-times:after {
+    content: "\f00d";
+}
+
+.fa-times:before {
+    content: "";
+}
+
 .boxsearch {
     width: 300px;
     position: relative;
@@ -69,15 +77,15 @@ h1 {
     height: 300px;
 }
 
-#choix button {
-    border: 1px solid black;
+#choix div {
+    border: 1.5px solid black;
     background-color: white;
     margin: 0.5em;
     height: 30px;
     padding: 6px;
 }
 
-#choix button:hover {
+#choix div:hover {
     background-color: #66c7ff72;
 }
 
@@ -90,6 +98,14 @@ h1 {
     border: 1px solid black;
     margin: 0 1.5em 0em;
 }
+
+.dropped-item {
+    background-color: #00ff00;
+    box-shadow: 2px 2px 5px #888888;
+    font-size: 1.5em;
+    margin: 0.5em;
+}
+
 
 #effacer {
     border-radius: 84px;
