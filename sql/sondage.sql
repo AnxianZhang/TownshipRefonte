@@ -25,4 +25,3 @@ CREATE TABLE Resultat(
    CONSTRAINT FK_Resultat_Aliment FOREIGN KEY(Id_Aliment) REFERENCES Aliments(Id_Aliment) ON DELETE CASCADE,
    CONSTRAINT FK_Resultat_Sondage FOREIGN KEY(Id_sondage) REFERENCES Sondage(Id_sondage) ON DELETE CASCADE
 );
-
