@@ -18,8 +18,8 @@
             if ($commande->execute()){
                 $result = $commande->fetchAll(PDO::FETCH_ASSOC);
                 if (count($result) != 0){
-                    $profil = $result[0];
-                    return $result[0]["mdp"];
+                    return json_encode($result);
+                    
                 }
                 return "";
             }
@@ -31,14 +31,18 @@
 
     if($tag != "")
     {
+        echo $tag;
+        echo"null";
+    }
+  
+    else{
+        
         for($i=0;$i<count($tag);$i++){
             $str_tag = $tag[$i];
             choixFiltre($str_tag);
-            echo "fait";
+            echo $tag;
+            echo "fait";  
         }
-    }
-    else{
-        echo"null";
     }
     
 

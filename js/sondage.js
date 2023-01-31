@@ -8,6 +8,7 @@ const getDefaultCates = () => {
         dataType: "json",
         success: data => {
             addFilterCheckBox(data);
+            choixCates();
         },
         error: () => {
             alert("Problem occured in ajax of Sondage.js 1");
@@ -16,11 +17,11 @@ const getDefaultCates = () => {
 
     const addFilterCheckBox = data => {
         for (let value of data) {
-            console.log(value["alim_grp_nom_fr"]);
+            // console.log(value["alim_grp_nom_fr"]);
             $('#filtre')
-                .append("<input type='checkbox' name='category' value=" + value["alim_grp_nom_fr"] + ">")
-                .append("<label>" + value["alim_grp_nom_fr"] + "</label></div>")
-                .append(`<br>`);
+                .append("<div><input type='checkbox' name='category' id=" + value["alim_grp_nom_fr"] + ">" + "<label for=" + value["alim_grp_nom_fr"] + ">" + value["alim_grp_nom_fr"] + "</label></div>")
+                // .append(`<br>`)
+                ;
         }
     }
 };
@@ -43,7 +44,7 @@ const getDefaultAliments = () => {
 
     const addChoixAliment = data => {
         for (let value of data) {
-            console.log(value["alim_nom_fr"]);
+            // console.log(value["alim_nom_fr"]);
             $('#choix')
                 .append("<button>" + value["alim_nom_fr"] + "</button>");
         }
@@ -51,39 +52,57 @@ const getDefaultAliments = () => {
 };
 
 const choixCates = () => {
-    document.querySelector("input[type=checkbox]").addEventListener("click", () => {
-    // $(":checkbox").on("click", () => {
-    let url = "./php/filtres.php";
-    let data = {
-        category: $('input[name=category]').serialize(),
-    };
-    $.ajax({
-        async: true,
-        contentType: "application/x-www-form-urlencoded",
-        type: "POST",
-        url: url,
-        dataType: "json",
-        data: data,
-        success: data => {
-            addFilterchoisi(data);
-        },
-        error: () => {
-            alert("Problem occured in ajax of Sondage.js 3");
-        }
+    // console.log(document.querySelectorAll("input[name='category']").length);
+    Array.from(document.querySelectorAll("input[type=checkbox]")).forEach(input => {
+// $("input[type=checkbox]").click(function(){
+        console.log('xt');
+        input.addEventListener("click", () => {
+            
+            // alert($("input[name='category']").serializeArray());
+            // $(":checkbox").on("click", () => {
+            let url = "./php/filtres.php";
+            let allCategory = document.querySelectorAll("#filtre label");
+            // console.log(allCategory.length);
+            // allCategory.forEach(xt =>{
+            //     // console.log(xt.textContent);
+            // });
+            allCategory
+            let data1 = {
+                category: allCategory
+            };
+            $.ajax({
+                async: true,
+                contentType: "application/x-www-form-urlencoded",
+                type: "POST",
+                url: url,
+                dataType: "json",
+                data: data1,
+                success: data => {
+                    // console.log(data);
+                    addFilterchoisi(data);
+                },
+                error: () => {
+                    alert("Problem occured in ajax of Sondage.js 3");
+                }
+            });
+
+            const addFilterchoisi = data => {
+                // alert(value["alim_nom_fr"]);<
+                $("#choix button").remove();
+                for (let value of data) {
+                    console.log(value["alim_nom_fr"]);
+                    $('#choix')
+                        .append("<button>" + value["alim_nom_fr"] + "</button>");
+                }
+            }
+        });
     });
+}
 
-    const addFilterchoisi = data => {
-        alert(value["alim_nom_fr"]);
-        $("#choix button").remove();
-        for (let value of data) {
-            console.log(value["alim_nom_fr"]);
-            $('#choix')
-                .append("<button>" + value["alim_nom_fr"] + "</button>");
-        }
-    }
-});
-};
+const startSondage = () => {
+    getDefaultCates();
+    getDefaultAliments();
+    // choixCates();
+}
 
-$(document).ready(getDefaultCates);
-$(document).ready(getDefaultAliments);
-$(document).ready(choixCates);
+window.addEventListener("DOMContentLoaded", startSondage);
