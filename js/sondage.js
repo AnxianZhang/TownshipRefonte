@@ -16,15 +16,25 @@ const getDefaultCates = () => {
     });
 
     const addFilterCheckBox = data => {
+        let i = 0;
         for (let value of data) {
             // console.log(value["alim_grp_nom_fr"]);
+
             $('#filtre')
-                .append("<div><input type='checkbox' name='category' id=" + value["alim_grp_nom_fr"] + ">" + "<label for=" + value["alim_grp_nom_fr"] + ">" + value["alim_grp_nom_fr"] + "</label></div>")
-                // .append(`<br>`)
+                .append("<div><input type='checkbox' name='category' " + "id=" + i + ">" + "<label for=" + i + ">" + value["alim_grp_nom_fr"] + "</label></div>")
                 ;
+            ++i
         }
     }
 };
+
+
+const checkboxOnlyOne = clickedInput => {
+    document.querySelectorAll("input[type=checkbox]").forEach(input => {
+        input.checked = false;
+    });
+    clickedInput.checked = true;
+}
 
 const getDefaultAliments = () => {
     let url = "./php/getDefaultAliment.php";
@@ -44,7 +54,6 @@ const getDefaultAliments = () => {
 
     const addChoixAliment = data => {
         for (let value of data) {
-            // console.log(value["alim_nom_fr"]);
             $('#choix')
                 .append("<button>" + value["alim_nom_fr"] + "</button>");
         }
@@ -53,22 +62,17 @@ const getDefaultAliments = () => {
 
 const choixCates = () => {
     // console.log(document.querySelectorAll("input[name='category']").length);
+    let labels = Array.from(document.querySelectorAll("#filtre label"));
     Array.from(document.querySelectorAll("input[type=checkbox]")).forEach(input => {
-// $("input[type=checkbox]").click(function(){
-        console.log('xt');
-        input.addEventListener("click", () => {
-            
-            // alert($("input[name='category']").serializeArray());
-            // $(":checkbox").on("click", () => {
+        // $("input[type=checkbox]").click(function(){
+
+        input.addEventListener("change", function () {
+            checkboxOnlyOne(this);
             let url = "./php/filtres.php";
-            let allCategory = document.querySelectorAll("#filtre label");
-            // console.log(allCategory.length);
-            // allCategory.forEach(xt =>{
-            //     // console.log(xt.textContent);
-            // });
-            allCategory
+            let allCategory = labels[this.getAttribute("id")].textContent;
+            console.log(allCategory);
             let data1 = {
-                category: allCategory
+                category: allCategory,
             };
             $.ajax({
                 async: true,
@@ -78,8 +82,13 @@ const choixCates = () => {
                 dataType: "json",
                 data: data1,
                 success: data => {
-                    // console.log(data);
+                    // $(".ligne").html(data);
+                    // if(data!=null)
                     addFilterchoisi(data);
+                    // else
+                    //     console.log(data);
+
+
                 },
                 error: () => {
                     alert("Problem occured in ajax of Sondage.js 3");
@@ -87,12 +96,11 @@ const choixCates = () => {
             });
 
             const addFilterchoisi = data => {
-                // alert(value["alim_nom_fr"]);<
                 $("#choix button").remove();
                 for (let value of data) {
-                    console.log(value["alim_nom_fr"]);
-                    $('#choix')
-                        .append("<button>" + value["alim_nom_fr"] + "</button>");
+                    {
+                        $('#choix').append("<button>" + value["alim_nom_fr"] + "</button>");
+                    }
                 }
             }
         });
