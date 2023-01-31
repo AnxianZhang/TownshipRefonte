@@ -53,9 +53,13 @@ const getDefaultAliments = () => {
     });
 
     const addChoixAliment = data => {
+        let i = 0;
         for (let value of data) {
-            $('#choix')
-                .append("<button>" + value["alim_nom_fr"] + "</button>");
+            // if (i != 10)
+                $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
+            // else
+            //     return;
+            // ++i;
         }
     }
 };
@@ -96,10 +100,10 @@ const choixCates = () => {
             });
 
             const addFilterchoisi = data => {
-                $("#choix button").remove();
+                $("#choix > li").remove();
                 for (let value of data) {
                     {
-                        $('#choix').append("<button>" + value["alim_nom_fr"] + "</button>");
+                        $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
                     }
                 }
             }
@@ -109,7 +113,7 @@ const choixCates = () => {
 
 const startSondage = () => {
     getDefaultCates();
-    getDefaultAliments();
+    // getDefaultAliments();
     // choixCates();
 }
 
