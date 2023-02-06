@@ -1,3 +1,25 @@
+const verifForm = () => {
+    document.querySelector("button#env").addEventListener("click", () => {
+        $.ajax({
+            async: true,
+            type: "post",
+
+            url: "./php/verifPersonalData.php",
+            data: {
+                nom: document.querySelector("input[name=nom]").value,
+                prenom: document.querySelector("input[name=prenom]").value,
+                age: document.querySelector("input[name=age]").value
+            },
+            success: data => {
+                alert(data);
+            },
+            error: () => {
+                alert("Problem occured in ajax of Sondage.js at verifForm");
+            }
+        });
+    });
+}
+
 const getDefaultCates = () => {
     let url = "./php/getDefaultFiltre.php";
     $.ajax({
@@ -18,8 +40,6 @@ const getDefaultCates = () => {
     const addFilterCheckBox = data => {
         let i = 0;
         for (let value of data) {
-            // console.log(value["alim_grp_nom_fr"]);
-
             $('#filtre')
                 .append("<div><input type='checkbox' name='category' " + "id=" + i + ">" + "<label for=" + i + ">" + value["alim_grp_nom_fr"] + "</label></div>")
                 ;
@@ -55,11 +75,7 @@ const getDefaultAliments = () => {
     const addChoixAliment = data => {
         let i = 0;
         for (let value of data) {
-            // if (i != 10)
-                $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
-            // else
-            //     return;
-            // ++i;
+            $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
         }
     }
 };
@@ -115,6 +131,7 @@ const startSondage = () => {
     getDefaultCates();
     // getDefaultAliments();
     // choixCates();
+    verifForm();
 }
 
 window.addEventListener("DOMContentLoaded", startSondage);

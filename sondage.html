@@ -103,22 +103,21 @@
         <div id="infopers">
 
             <label>Nom</label><br>
-            <input type="text" name=" " oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
+            <input type="text" name="nom" oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
             <br>
 
             <label>Prénom</label><br>
-            <input type="text" name=" " oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
+            <input type="text" name="prenom" oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
             <br>
 
             <label>Age</label><span style="color:red;">* </span><br>
-            <input id="inputage" type="text" name=" " oninput="value=value.replace(/[^\d]/g,'')" maxlength="3">
+            <input id="inputage" type="text" name="age" oninput="value=value.replace(/[^\d]/g,'')" maxlength="2">
             <p id="champo"><span style="color:red;">* </span>
                 champ obligatoire
             </p>
             <br><br><br>
         </div>
-
-        <button id="env">Envoyer</button>
+        <button id="env" type="submit">Envoyer</button>
     </div>
     <footer>
         <div>
