@@ -56,13 +56,22 @@ const getDefaultAliments = () => {
         let i = 0;
         for (let value of data) {
             // if (i != 10)
-                $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
+            $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
             // else
             //     return;
             // ++i;
         }
     }
 };
+
+const addFilterchoisi = data => {
+    $("#choix > li").remove();
+    for (let value of data) {
+        {
+            $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
+        }
+    }
+}
 
 const choixCates = () => {
     // console.log(document.querySelectorAll("input[name='category']").length);
@@ -72,9 +81,16 @@ const choixCates = () => {
 
         input.addEventListener("change", function () {
             checkboxOnlyOne(this);
+            let clickedInputId = this.getAttribute("id");
+            $("#search").keyup(function (event) {
+                if (event.keyCode == 13) {
+                    searchBox(clickedInputId);
+                }})
+
             let url = "./php/filtres.php";
-            let allCategory = labels[this.getAttribute("id")].textContent;
-            console.log(allCategory);
+            let allCategory = labels[clickedInputId].textContent;
+            // console.log(allCategory);
+
             let data1 = {
                 category: allCategory,
             };
@@ -89,32 +105,56 @@ const choixCates = () => {
                     // $(".ligne").html(data);
                     // if(data!=null)
                     addFilterchoisi(data);
+                    //searchBox(data);
                     // else
-                    //     console.log(data);
-
-
+                    // $("#infopers").html(data);
                 },
                 error: () => {
                     alert("Problem occured in ajax of Sondage.js 3");
                 }
             });
-
-            const addFilterchoisi = data => {
-                $("#choix > li").remove();
-                for (let value of data) {
-                    {
-                        $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
-                    }
-                }
-            }
         });
     });
+}
+
+const searchBox = clickedInput => {
+    // $("#search").keyup(function (event) {
+    //     if (event.keyCode == 13) {
+            //TODO
+            let labels = Array.from(document.querySelectorAll("#filtre label"));
+            let url = "./php/searchBox.php";
+            let motS = $("#search").val();
+            let allCategory = labels[clickedInput].textContent;
+            console.log("input:", motS,", ", allCategory);            
+            // alert(allCategory);
+            let data = {
+                motSearch: motS,
+                filtreCle: allCategory,
+            };
+            $.ajax({
+                async: true,
+                contentType: "application/x-www-form-urlencoded",
+                type: "POST",
+                url: url,
+                // dataType: "json",
+                data: data,
+                success: data => {
+                    addFilterchoisi(data);
+                    $("#infopers").html("output: "+ data);
+                },
+                error: () => {
+                    alert("Problem occured in ajax of Sondage.js 4");
+                }
+            });
+    //     }
+    // });
 }
 
 const startSondage = () => {
     getDefaultCates();
     // getDefaultAliments();
     // choixCates();
+    // searchBox();
 }
 
 window.addEventListener("DOMContentLoaded", startSondage);
