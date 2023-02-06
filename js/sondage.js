@@ -66,11 +66,13 @@ const getDefaultAliments = () => {
 
 const addFilterchoisi = data => {
     $("#choix > li").remove();
+    let i = 0;
     for (let value of data) {
-        {
+        
             $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
-        }
+        i = i + 1;
     }
+    console.log(i);
 }
 
 const choixCates = () => {
@@ -122,25 +124,23 @@ const searchBox = clickedInput => {
     //     if (event.keyCode == 13) {
             //TODO
             let labels = Array.from(document.querySelectorAll("#filtre label"));
-            let url = "./php/searchBox.php";
-            let motS = $("#search").val();
-            let allCategory = labels[clickedInput].textContent;
-            console.log("input:", motS,", ", allCategory);            
-            // alert(allCategory);
-            let data = {
-                motSearch: motS,
-                filtreCle: allCategory,
-            };
+            let category = labels[clickedInput].textContent;
+            // console.log("input:", motS,", ", category);            
+            // console.log("cat = " + category);
             $.ajax({
                 async: true,
                 contentType: "application/x-www-form-urlencoded",
                 type: "POST",
-                url: url,
-                // dataType: "json",
-                data: data,
-                success: data => {
-                    addFilterchoisi(data);
-                    $("#infopers").html("output: "+ data);
+                url: "./php/searchBox.php",
+                dataType: "array",
+                data: {
+                    motSearch: $("#search").val(),
+                    filtreChoix: category,
+                },
+                success: result => {
+                    $("#infopers").html("output: "+ result);
+                    console.log("lenght :", result);
+                    addFilterchoisi(result);
                 },
                 error: () => {
                     alert("Problem occured in ajax of Sondage.js 4");
