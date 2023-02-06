@@ -24,6 +24,7 @@ h1 {
     margin: 0 1.5em 1.5em;
 }
 
+
 .boxsearch input#search {
     width: 300px;
     height: 40px;
@@ -97,6 +98,13 @@ h1 {
     height: 100px;
     border: 1px solid black;
     margin: 0 1.5em 0em;
+    transition: all 100ms 100ms ease-in-out;
+}
+
+#resultat:hover {
+    border-color: #00ff00;
+    border-width: 0.15em;
+    transform: scale(1.01);
 }
 
 .dropped-item {
