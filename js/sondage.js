@@ -34,6 +34,8 @@ const checkboxOnlyOne = clickedInput => {
         input.checked = false;
     });
     clickedInput.checked = true;
+    $("#search").val("");
+
 }
 
 const getDefaultAliments = () => {
@@ -53,27 +55,13 @@ const getDefaultAliments = () => {
     });
 
     const addChoixAliment = data => {
-        let i = 0;
         for (let value of data) {
-            // if (i != 10)
             $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
-            // else
-            //     return;
-            // ++i;
         }
     }
 };
 
-const addFilterchoisi = data => {
-    $("#choix > li").remove();
-    let i = 0;
-    for (let value of data) {
-        
-            $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
-        i = i + 1;
-    }
-    console.log(i);
-}
+
 
 const choixCates = () => {
     // console.log(document.querySelectorAll("input[name='category']").length);
@@ -87,7 +75,8 @@ const choixCates = () => {
             $("#search").keyup(function (event) {
                 if (event.keyCode == 13) {
                     searchBox(clickedInputId);
-                }})
+                }
+            })
 
             let url = "./php/filtres.php";
             let allCategory = labels[clickedInputId].textContent;
@@ -115,6 +104,13 @@ const choixCates = () => {
                     alert("Problem occured in ajax of Sondage.js 3");
                 }
             });
+            const addFilterchoisi = data => {
+                $("#choix > li").remove();
+                for (let value of data) {
+
+                    $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
+                }
+            }
         });
     });
 }
@@ -122,32 +118,38 @@ const choixCates = () => {
 const searchBox = clickedInput => {
     // $("#search").keyup(function (event) {
     //     if (event.keyCode == 13) {
-            //TODO
-            let labels = Array.from(document.querySelectorAll("#filtre label"));
-            let category = labels[clickedInput].textContent;
-            // console.log("input:", motS,", ", category);            
-            // console.log("cat = " + category);
-            $.ajax({
-                async: true,
-                contentType: "application/x-www-form-urlencoded",
-                type: "POST",
-                url: "./php/searchBox.php",
-                dataType: "array",
-                data: {
-                    motSearch: $("#search").val(),
-                    filtreChoix: category,
-                },
-                success: result => {
-                    $("#infopers").html("output: "+ result);
-                    console.log("lenght :", result);
-                    addFilterchoisi(result);
-                },
-                error: () => {
-                    alert("Problem occured in ajax of Sondage.js 4");
-                }
-            });
-    //     }
-    // });
+    //TODO
+    let labels = Array.from(document.querySelectorAll("#filtre label"));
+    let category = labels[clickedInput].textContent;
+    // console.log("input:", motS,", ", category);            
+    // console.log("cat = " + category);
+    $.ajax({
+        async: true,
+        contentType: "application/x-www-form-urlencoded",
+        type: "POST",
+        url: "./php/searchBox.php",
+        dataType: "json",
+        data: {
+            motSearch: $("#search").val(),
+            filtreChoix: category,
+        },
+        success: result => {
+            addChoixAliment(result);
+            // $("#infopers").html("output: " + result);
+            // console.log("lenght :", result);
+        },
+        error: () => {
+            alert("Problem occured in ajax of Sondage.js 4");
+
+        }
+    });
+    const addChoixAliment = data => {
+        $("#choix > li").remove();
+        for (let value of data) {
+            $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
+            
+        }
+    }
 }
 
 const startSondage = () => {

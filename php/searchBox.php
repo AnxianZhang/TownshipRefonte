@@ -1,8 +1,8 @@
 <?php
     $motCle = isset($_POST['motSearch']) ? $_POST['motSearch'] : "";
-    $filtreChoix = isset($_POST['filtreChoix']) ? $_POST['filtreChoix'] : "caca";
+    $filtreChoix = isset($_POST['filtreChoix']) ? $_POST['filtreChoix'] : "";
 
-    echo "mot: " . $motCle . "  filtre: " . $filtreChoix;
+    // echo "mot: " . $motCle . "  filtre: " . $filtreChoix;
     require("connexionBD.php");
     $sql = "SELECT alim_nom_fr
             FROM aliments
@@ -17,9 +17,9 @@
         $commande->bindParam(':filtreChoix', $filtreChoix);
         if ($commande->execute()){
             $result = $commande->fetchAll(PDO::FETCH_ASSOC);
-            echo $result;
+            echo json_encode($result);
             // var_dump(($result));
-            // die();
+            die();
         }
         // }
             

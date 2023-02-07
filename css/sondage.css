@@ -129,7 +129,7 @@ h1 {
     margin: 0.5em;
     padding: 6px;
     list-style-type: none;
-    height: 1.5em;
+    height: fit-content;
     flex-grow: 1;
 }
 
