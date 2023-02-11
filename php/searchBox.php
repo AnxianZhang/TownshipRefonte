@@ -19,7 +19,7 @@
             $result = $commande->fetchAll(PDO::FETCH_ASSOC);
             echo json_encode($result);
             // var_dump(($result));
-            die();
+            // die();
         }
         // }
             

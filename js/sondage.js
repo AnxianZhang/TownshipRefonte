@@ -35,7 +35,6 @@ const checkboxOnlyOne = clickedInput => {
     });
     clickedInput.checked = true;
     $("#search").val("");
-
 }
 
 const getDefaultAliments = () => {
