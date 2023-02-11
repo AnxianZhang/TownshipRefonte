@@ -44,6 +44,7 @@ h1 {
 .boxsearch:hover .icon {
     color: #66c7ff;
     transform: scale(1.5);
+    padding-top: 8px;
     transition: 0.4s ease;
 }
 
@@ -128,7 +129,7 @@ h1 {
     margin: 0.5em;
     padding: 6px;
     list-style-type: none;
-    height: 1.5em;
+    height: fit-content;
     flex-grow: 1;
 }
 
