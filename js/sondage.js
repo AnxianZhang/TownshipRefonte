@@ -61,9 +61,29 @@ const getDefaultAliments = () => {
     }
 };
 
+let clickedInputId;
 
+const hasOneCheckedBox = () =>{
+    let is = false;
+    $("input[type=checkbox]").each(function(){
+        if ($(this).is(":checked")){
+            is = true;
+        }
+    });
+    return is;
+}
+
+const addEventToSeachBox = () =>{
+    $("#search").keyup(function (event) {
+        if (event.keyCode == 13 && $.trim($(this).val()) != "" && hasOneCheckedBox()) {
+            console.log($(this).val());
+            searchBox(clickedInputId);
+        }
+    });
+}
 
 const choixCates = () => {
+    let previousResearch = " ";
     // console.log(document.querySelectorAll("input[name='category']").length);
     let labels = Array.from(document.querySelectorAll("#filtre label"));
     Array.from(document.querySelectorAll("input[type=checkbox]")).forEach(input => {
@@ -71,12 +91,13 @@ const choixCates = () => {
 
         input.addEventListener("change", function () {
             checkboxOnlyOne(this);
-            let clickedInputId = this.getAttribute("id");
-            $("#search").keyup(function (event) {
-                if (event.keyCode == 13) {
-                    searchBox(clickedInputId);
-                }
-            })
+            clickedInputId = this.getAttribute("id");
+            // $("#search").keyup(function (event) {
+            //     if (event.keyCode == 13) {
+            //         console.log($(this).val());
+            //         searchBox(clickedInputId);
+            //     }
+            // });
 
             let url = "./php/filtres.php";
             let allCategory = labels[clickedInputId].textContent;
@@ -154,6 +175,7 @@ const searchBox = clickedInput => {
 
 const startSondage = () => {
     getDefaultCates();
+    addEventToSeachBox();
     // getDefaultAliments();
     // choixCates();
     // searchBox();
