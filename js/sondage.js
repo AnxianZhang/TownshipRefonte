@@ -103,7 +103,7 @@ const addEventToSeachBox = () => {
             console.log($(this).val());
             searchBox(clickedInputId);
         }
-        else{
+        if (event.keyCode == 13 && !hasOneCheckedBox()) {
             $('#choix').html("<li>" + "filtrer avant rechercher" + "</li>");
         }
     });
