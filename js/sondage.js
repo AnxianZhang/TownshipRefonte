@@ -12,9 +12,10 @@ const verifForm = () => {
             },
             success: data => {
                 //alert(data);
-                if(data =="GG"){
-                buttonEnv();}
-                else{
+                if (data == "GG") {
+                    buttonEnv();
+                }
+                else {
                     alert(data);
                 }
             },
@@ -103,7 +104,7 @@ const addEventToSeachBox = () => {
             console.log($(this).val());
             searchBox(clickedInputId);
         }
-        else{
+        else {
             $('#choix').html("<li>" + "filtrer avant rechercher" + "</li>");
         }
     });
@@ -156,8 +157,9 @@ const choixCates = () => {
                 $("#choix > li").remove();
                 for (let value of data) {
 
-                    $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
+                    $('#choix').append("<li class='draggable'><div>" + value["alim_nom_fr"] + "</div></li>");
                 }
+                // $("#choix > li").addClass("draggable");
             }
         });
     });
@@ -195,8 +197,8 @@ const searchBox = clickedInput => {
         $("#choix > li").remove();
         for (let value of data) {
             $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
-
         }
+
     }
 }
 
@@ -215,6 +217,7 @@ const startSondage = () => {
     verifForm();
     // buttonEnv();
     // searchBox();
+    $("#choix > li").addClass("draggable");
 }
 
 window.addEventListener("DOMContentLoaded", startSondage);
