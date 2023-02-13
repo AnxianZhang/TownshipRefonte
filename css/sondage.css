@@ -1,5 +1,6 @@
 #com-sondage p {
     margin: 1.5em 1.5em 3em;
+    color: #f1f1f1;
 }
 
 body {
@@ -28,22 +29,31 @@ h1 {
 .boxsearch input#search {
     width: 300px;
     height: 40px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-size: 10pt;
     padding-left: 45px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
+    /* background-color: rgb(217, 217, 217); */
+    border: none;
+    background-color: #D9D9D9;
+}
+
+.boxsearch input#search:placeholder-shown {
+    font-style: italic;
+    font-size: 1em;
 }
 
 .boxsearch .icon {
     position: absolute;
-    margin-left: 17px;
-    margin-top: 11px;
+    padding-left: 17px;
+    padding-top: 11px;
     z-index: 1;
 }
 
 .boxsearch:hover .icon {
     color: #66c7ff;
     transform: scale(1.5);
+    padding-top: 8px;
     transition: 0.4s ease;
 }
 
@@ -54,40 +64,88 @@ h1 {
 }
 
 #filtre {
-    flex: 1 1 120px;
+    flex: 1 1 180px;
     border: 1px solid black;
     /* background: rgba(217, 217, 217, 1); */
-    height: 300px;
+    height: 360px;
     margin: calc(1.5em + 40px) 1.5em 1.5em;
     padding: 0.5em;
     background-color: #D9D9D9;
+    border: none;
+}
+
+#filtre legend {
+    font-size: 2em;
 }
 
 #filtre div {
     margin-left: 0.5em;
+    display: flex;
+    /* justify-content:; */
+    gap: 1em;
+    margin: .5em;
+}
+
+/* #filtre input[type="checkbox"] {
+    width: 2em;
+    height: 2em;
+} */
+
+#filtre label {
+    align-self: center;
 }
 
 #choixright {
-    flex: 4 1 auto;
     position: relative;
+    flex: 4 1 calc(100vw - 180px - 6em);
 }
 
 #choix {
+    align-items: flex-start;
     padding: 0.5em;
-    border: 1px solid black;
+    border: 2px solid black;
     margin: 1em 1.5em;
-    height: 300px;
+    height: 360px;
+    max-width: 100%;
+    background-color: #FEFEFE;
+    /* gap: 2vmin; */
+    /* overflow:hidden; */
 }
 
-#choix div {
-    border: 1.5px solid black;
+#choix::after {
+    content: "";
+    display: block;
+    flex-grow: 10;
+}
+
+#filtre::-webkit-scrollbar,
+#choix::-webkit-scrollbar {
+    display: none;
+    /*scroll invisible Chrome Safari */
+}
+
+#filtre,
+#choix {
+    scrollbar-width: none;
+    /*scroll invisible firefox */
+    -ms-overflow-style: none;
+    /*scroll invisible IE 10+ */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+#choix li {
+    border: 1px solid black;
     background-color: white;
     margin: 0.5em;
-    height: 30px;
     padding: 6px;
+    list-style-type: none;
+    height: fit-content;
+    flex-grow: 1;
 }
 
-#choix div:hover {
+#choix li:hover {
     background-color: #66c7ff72;
 }
 
@@ -97,7 +155,7 @@ h1 {
 
 #resultat {
     height: 100px;
-    border: 1px solid black;
+    border: 2px solid black;
     margin: 0 1.5em 0em;
     transition: all 25ms 100ms ease-in-out;
 }
@@ -169,15 +227,24 @@ h1 {
     font-family: 'Cambay';
     font-style: italic;
     font-weight: 700;
-    font-size: 10px;
+    /* font-size: 10px; */
+    font-size: 1.25em;
     padding-left: 5px;
 }
 
 #infopers input {
-    border-radius: 5px;
-    border: 1px solid black;
+    /* width: 10em; */
+    border-radius: 20px;
+    /* border: 1px solid black; */
+    border-color: transparent;
     padding: 2px 6px;
     outline-style: none;
+    font-size: 1em;
+}
+
+#infopers input:not(#inputage) {
+    width: 25em;
+    height: 3em;
 }
 
 #infopers input:focus {
@@ -187,12 +254,14 @@ h1 {
 }
 
 #inputage {
-    width: 3em;
+    width: 10em;
+    height: 3em;
     float: left;
 }
 
 #champo {
-    font-size: x-small;
+    font-size: medium;
+    font-weight: bold;
     float: right;
     padding: 0;
 }
