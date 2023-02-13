@@ -12,10 +12,10 @@
     <script src="./js/communes.js"> </script>
     <script src="./js/navBar.js"> </script>
     <script src="./js/doubleClick.js"> </script>
-    <script src="./js/sondage.js"> </script>
+    <!-- <script src="./js/sondage.js"> </script> -->
 
     <link rel="stylesheet" href="./css/commun.css">
-    <link rel="stylesheet" href="./css/sondage.css">
+    <link rel="stylesheet" href="./css/resultat.css">
     <title>Le Grand Sud Caraïbe</title>
 </head>
 
@@ -68,56 +68,21 @@
     </header>
 
     <div class="fixe-to-top" id="com-sondage">
-        <h1>Sondage</h1>
-        <p>Afin de mieux comprendre les habitudes alimentaires de notre communauté, nous avons créé un sondage pour
-            recueillir vos réponses sur vos choix alimentaires quotidiens. Nous vous invitons à prendre quelques minutes
-            pour y répondre.</p>
-    </div>
-    <div class="flex">
-        <div id="filtre">
-            <legend>Filtres :</legend>
-            <!--<div><input type="checkbox" id="plait" name="plait">
-                    <label for="plait">Produit laitier</label></div>-->
-
-        </div>
-        <div id="choixright">
-
-            <div class="boxsearch">
-                <span class="icon"><i class="fa fa-search"></i></span>
-                <input type="search" id="search" placeholder="Filtrer avant rechercher...." />
-            </div>
-
-            <div id="choix" class="flex">
-                <!-- <button>dsfdsf</button> -->
-            </div>
-            <div>
-                <p id="choixpres">Mes aliments :</p>
-                <div id="resultat" class="flex"></div>
-                <button id="effacer">Effacer tout</button>
-            </div>
-        </div>
+        <h1>resultat</h1>
+        <p>Merci d'avoir participé(e) !<br>
+            Voici les résultats au sondage</p>
     </div>
     <div class="ligne"></div>
-    <div>
-        <h3 id="titreinfopers">Informations personnelles</h3>
-        <div id="infopers">
+    <div id="resuGra">
+        <div id="histogramme1" class="caseGraphe">
 
-            <label>Nom</label><br>
-            <input type="text" name="nom" oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
-            <br>
-
-            <label>Prénom</label><br>
-            <input type="text" name="prenom" oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
-            <br>
-
-            <label>Age</label><span style="color:red;">* </span><br>
-            <input id="inputage" type="text" name="age" oninput="value=value.replace(/[^\d]/g,'')" maxlength="2">
-            <p id="champo"><span style="color:red;">* </span>
-                champ obligatoire
-            </p>
-            <br><br><br>
         </div>
-        <a href="./resultat.html"><button id="env" type="submit" >Envoyer</button></a>
+        <div id="histogramme2" class="caseGraphe">
+
+        </div>
+        <div id="histogramme3" class="caseGraphe">
+
+        </div>
     </div>
     <footer>
         <div>

@@ -11,7 +11,7 @@ const verifForm = () => {
                 age: document.querySelector("input[name=age]").value
             },
             success: data => {
-                alert(data);
+                //alert(data);
             },
             error: () => {
                 alert("Problem occured in ajax of Sondage.js at verifForm");
@@ -82,17 +82,17 @@ const getDefaultAliments = () => {
 
 let clickedInputId;
 
-const hasOneCheckedBox = () =>{
+const hasOneCheckedBox = () => {
     let is = false;
-    $("input[type=checkbox]").each(function(){
-        if ($(this).is(":checked")){
+    $("input[type=checkbox]").each(function () {
+        if ($(this).is(":checked")) {
             is = true;
         }
     });
     return is;
 }
 
-const addEventToSeachBox = () =>{
+const addEventToSeachBox = () => {
     $("#search").keyup(function (event) {
         if (event.keyCode == 13 && $.trim($(this).val()) != "" && hasOneCheckedBox()) {
             console.log($(this).val());
@@ -187,7 +187,7 @@ const searchBox = clickedInput => {
         $("#choix > li").remove();
         for (let value of data) {
             $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
-            
+
         }
     }
 }
