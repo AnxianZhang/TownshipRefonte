@@ -103,6 +103,9 @@ const addEventToSeachBox = () => {
             console.log($(this).val());
             searchBox(clickedInputId);
         }
+        else{
+            $('#choix').html("<li>" + "filtrer avant rechercher" + "</li>");
+        }
     });
 }
 
