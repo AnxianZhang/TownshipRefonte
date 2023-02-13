@@ -69,6 +69,7 @@ h1 {
 
 #choixright {
     flex: 4 1 auto;
+    position: relative;
 }
 
 #choix {
@@ -98,13 +99,20 @@ h1 {
     height: 100px;
     border: 1px solid black;
     margin: 0 1.5em 0em;
-    transition: all 100ms 100ms ease-in-out;
+    transition: all 25ms 100ms ease-in-out;
 }
 
 #resultat:hover {
     border-color: #00ff00;
     border-width: 0.15em;
-    transform: scale(1.01);
+}
+
+.ui-state-hover {
+    border: #00ff00 0.15em solid !important;
+}
+
+.ui-state-hover2 {
+    color: red;
 }
 
 .dropped-item {
@@ -114,6 +122,13 @@ h1 {
     margin: 0.5em;
 }
 
+#poubelle {
+    font-size: 2em;
+    position: absolute;
+    top: 95%;
+    right: 5%;
+    transform: translate(-50%, -50%);
+}
 
 #effacer {
     border-radius: 84px;
