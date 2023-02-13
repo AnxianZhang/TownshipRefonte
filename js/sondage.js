@@ -12,6 +12,11 @@ const verifForm = () => {
             },
             success: data => {
                 //alert(data);
+                if(data =="GG"){
+                buttonEnv();}
+                else{
+                    alert(data);
+                }
             },
             error: () => {
                 alert("Problem occured in ajax of Sondage.js at verifForm");
@@ -192,12 +197,20 @@ const searchBox = clickedInput => {
     }
 }
 
+const buttonEnv = () => {
+    $("#env").click(function () {
+        $(location).attr("href", "./resultat.html")
+    })
+
+}
+
 const startSondage = () => {
     getDefaultCates();
     addEventToSeachBox();
     // getDefaultAliments();
     // choixCates();
     verifForm();
+    // buttonEnv();
     // searchBox();
 }
 
