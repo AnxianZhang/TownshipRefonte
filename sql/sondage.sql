@@ -1,7 +1,3 @@
-DROP TABLE Utilisateur;
-DROP TABLE Sondage;
-DROP TABLE Resultat;
-
 CREATE TABLE Utilisateur(
    Id_User INT AUTO_INCREMENT,
    Nom VARCHAR(50) NOT NULL,

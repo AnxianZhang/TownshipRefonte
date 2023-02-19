@@ -1,3 +1,5 @@
+import {Draggable} from './Draggable.js';
+
 const verifForm = () => {
     document.querySelector("button#env").addEventListener("click", () => {
         $.ajax({
@@ -12,9 +14,10 @@ const verifForm = () => {
             },
             success: data => {
                 //alert(data);
-                if(data =="GG"){
-                buttonEnv();}
-                else{
+                if (data == "GG") {
+                    buttonEnv();
+                }
+                else {
                     alert(data);
                 }
             },
@@ -62,28 +65,28 @@ const checkboxOnlyOne = clickedInput => {
     $("#search").val("");
 }
 
-const getDefaultAliments = () => {
-    let url = "./php/getDefaultAliment.php";
-    $.ajax({
-        async: true,
-        contentType: "application/x-www-form-urlencoded",
-        type: "POST",
-        url: url,
-        dataType: "json",
-        success: data => {
-            addChoixAliment(data);
-        },
-        error: () => {
-            alert("Problem occured in ajax of Sondage.js 2");
-        }
-    });
+// const getDefaultAliments = () => {
+//     let url = "./php/getDefaultAliment.php";
+//     $.ajax({
+//         async: true,
+//         contentType: "application/x-www-form-urlencoded",
+//         type: "POST",
+//         url: url,
+//         dataType: "json",
+//         success: data => {
+//             addChoixAliment(data);
+//         },
+//         error: () => {
+//             alert("Problem occured in ajax of Sondage.js 2");
+//         }
+//     });
 
-    const addChoixAliment = data => {
-        for (let value of data) {
-            $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
-        }
-    }
-};
+//     const addChoixAliment = data => {
+//         for (let value of data) {
+//             $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
+//         }
+//     }
+// };
 
 let clickedInputId;
 
@@ -106,6 +109,9 @@ const addEventToSeachBox = () => {
         if (event.keyCode == 13 && !hasOneCheckedBox()) {
             $('#choix').html("<li>" + "filtrer avant rechercher" + "</li>");
         }
+        // else {
+        //     $('#choix').html("<li>" + "filtrer avant rechercher" + "</li>");
+        // }
     });
 }
 
@@ -117,6 +123,8 @@ const choixCates = () => {
         // $("input[type=checkbox]").click(function(){
 
         input.addEventListener("change", function () {
+            // $("#choix").append("<li><div>" + "aze"+ "</div></li>");
+            // $("#choix li").addClass("draggable");
             checkboxOnlyOne(this);
             clickedInputId = this.getAttribute("id");
             // $("#search").keyup(function (event) {
@@ -144,6 +152,7 @@ const choixCates = () => {
                     // $(".ligne").html(data);
                     // if(data!=null)
                     addFilterchoisi(data);
+                    Draggable.myDraggableAndDroppable();
                     //searchBox(data);
                     // else
                     // $("#infopers").html(data);
@@ -155,9 +164,9 @@ const choixCates = () => {
             const addFilterchoisi = data => {
                 $("#choix > li").remove();
                 for (let value of data) {
-
                     $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
                 }
+                // $("#choix > li").addClass("draggable");
             }
         });
     });
@@ -183,6 +192,7 @@ const searchBox = clickedInput => {
         },
         success: result => {
             addChoixAliment(result);
+            Draggable.myDraggableAndDroppable();
             // $("#infopers").html("output: " + result);
             // console.log("lenght :", result);
         },
@@ -195,7 +205,6 @@ const searchBox = clickedInput => {
         $("#choix > li").remove();
         for (let value of data) {
             $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
-
         }
     }
 }
@@ -203,11 +212,13 @@ const searchBox = clickedInput => {
 const buttonEnv = () => {
     $("#env").click(function () {
         $(location).attr("href", "./resultat.html")
-    })
-
+    });
 }
 
 const startSondage = () => {
+    Draggable.ereaseButton();
+    Draggable.bin();
+    
     getDefaultCates();
     addEventToSeachBox();
     // getDefaultAliments();
@@ -215,6 +226,9 @@ const startSondage = () => {
     verifForm();
     // buttonEnv();
     // searchBox();
+    $("#choix").append("<li><div>" + "X" + "</div></li>"); // ok ça
+    
+    $("#choix > li").addClass("draggable");
 }
 
 window.addEventListener("DOMContentLoaded", startSondage);

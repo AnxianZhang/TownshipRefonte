@@ -11,11 +11,20 @@ h1 {
     color: black;
 }
 
+.fa-times:after {
+    content: "\f00d";
+}
+
+.fa-times:before {
+    content: "";
+}
+
 .boxsearch {
     width: 300px;
     position: relative;
     margin: 0 1.5em 1.5em;
 }
+
 
 .boxsearch input#search {
     width: 300px;
@@ -87,11 +96,12 @@ h1 {
 }
 
 #choixright {
+    position: relative;
     flex: 4 1 calc(100vw - 180px - 6em);
 }
 
 #choix {
-    align-items:flex-start;
+    align-items: flex-start;
     padding: 0.5em;
     border: 2px solid black;
     margin: 1em 1.5em;
@@ -102,18 +112,20 @@ h1 {
     /* overflow:hidden; */
 }
 
-#choix::after{
+#choix::after {
     content: "";
     display: block;
     flex-grow: 10;
 }
 
-#filtre::-webkit-scrollbar, #choix::-webkit-scrollbar {
+#filtre::-webkit-scrollbar,
+#choix::-webkit-scrollbar {
     display: none;
     /*scroll invisible Chrome Safari */
 }
 
-#filtre, #choix {
+#filtre,
+#choix {
     scrollbar-width: none;
     /*scroll invisible firefox */
     -ms-overflow-style: none;
@@ -145,7 +157,39 @@ h1 {
     height: 100px;
     border: 2px solid black;
     margin: 0 1.5em 0em;
-    background-color: rgb(254, 254, 254);
+    transition: all 25ms 100ms ease-in-out;
+}
+
+#resultat:hover {
+    border-color: #00ff00;
+    border-width: 0.15em;
+}
+
+.ui-state-hover {
+    border: #00ff00 0.15em solid !important;
+}
+
+.ui-state-hover2 {
+    color: red;
+}
+
+.dropped-item {
+    background-color: #00ff00;
+    box-shadow: 2px 2px 5px #888888;
+    font-size: 1.5em;
+    margin: 0.5em;
+}
+
+.draggable {
+    z-index: 2;
+}
+
+#poubelle {
+    font-size: 2em;
+    position: absolute;
+    top: 95%;
+    right: 5%;
+    transform: translate(-50%, -50%);
 }
 
 #effacer {
