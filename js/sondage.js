@@ -100,8 +100,9 @@ const hasOneCheckedBox = () => {
     return is;
 }
 
+let previousResearch = " ";
+
 const addEventToSeachBox = () =>{
-    let previousResearch = " ";
     $("#search").keyup(function (event) {
         if (event.keyCode == 13 && $.trim($(this).val()) != "" && hasOneCheckedBox() && $(this).val() != previousResearch) {
             previousResearch = $(this).val()
@@ -118,13 +119,12 @@ const addEventToSeachBox = () =>{
 }
 
 const choixCates = () => {
-    let previousResearch = " ";
     // console.log(document.querySelectorAll("input[name='category']").length);
     let labels = Array.from(document.querySelectorAll("#filtre label"));
     Array.from(document.querySelectorAll("input[type=checkbox]")).forEach(input => {
         // $("input[type=checkbox]").click(function(){
-
         input.addEventListener("change", function () {
+            previousResearch = " ";
             // $("#choix").append("<li><div>" + "aze"+ "</div></li>");
             // $("#choix li").addClass("draggable");
             checkboxOnlyOne(this);
