@@ -100,9 +100,11 @@ const hasOneCheckedBox = () => {
     return is;
 }
 
-const addEventToSeachBox = () => {
+const addEventToSeachBox = () =>{
+    let previousResearch = " ";
     $("#search").keyup(function (event) {
-        if (event.keyCode == 13 && $.trim($(this).val()) != "" && hasOneCheckedBox()) {
+        if (event.keyCode == 13 && $.trim($(this).val()) != "" && hasOneCheckedBox() && $(this).val() != previousResearch) {
+            previousResearch = $(this).val()
             console.log($(this).val());
             searchBox(clickedInputId);
         }
@@ -176,6 +178,7 @@ const searchBox = clickedInput => {
     // $("#search").keyup(function (event) {
     //     if (event.keyCode == 13) {
     //TODO
+    // console.log("hola qetal");
     let labels = Array.from(document.querySelectorAll("#filtre label"));
     let category = labels[clickedInput].textContent;
     // console.log("input:", motS,", ", category);            
