@@ -25,19 +25,25 @@ export class Click {
     //     });
     // }
 
-    static click = () => {
-        var liADeplacer = $("#choix > li");
-        liADeplacer.click(function(){
-            var nouvelEmplacement = $("#resultat");
-            liADeplacer.appendTo(nouvelEmplacement);
-            $("<span class='supprimerLi'>X</span>").appendTo(liADeplacer);
+    static ereaseIndividualButton = () => {
+        $(".supprimerLi").click(function () {
+            let caca = $(this).parent().parent().html();
+            $(this).parent().remove();
+            $('#choix').append(caca);
+            $(" #choix > li > .supprimerLi").remove();
+            $("#choix > li").removeAttr('style');
+            /*Click.click();*/
         });
     }
-    static ereaseIndividualButton = () => {
-        $(document).on("click", ".supprimerLi", function() {
-            $("#resultat > li").removeClass("supprimerLi");
-            var liASupprimer = $(this).parent();
-            liASupprimer.appendTo("#choix");
+
+    static click = () => {
+        var liADeplacer = $("#choix > li");
+        liADeplacer.click(function () {
+            var nouvelEmplacement = $("#resultat");
+            $(this).appendTo(nouvelEmplacement).css("display", "flex");
+            $("<div class='supprimerLi'>X</div>").prependTo($(this)).css("flex-direction", "flex-start");
+            Click.ereaseIndividualButton();
+            $(this).off("click");
         });
     }
 

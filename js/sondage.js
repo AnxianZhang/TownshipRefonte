@@ -1,4 +1,4 @@
-import {Click} from './Draggable.js';
+import { Click } from './Draggable.js';
 
 const verifForm = () => {
     document.querySelector("button#env").addEventListener("click", () => {
@@ -215,7 +215,7 @@ const buttonEnv = () => {
 const startSondage = () => {
     Click.ereaseButton();
     //Click.bin();
-    
+
     getDefaultCates();
     addEventToSeachBox();
     // getDefaultAliments();
@@ -224,7 +224,7 @@ const startSondage = () => {
     // buttonEnv();
     // searchBox();
     $("#choix").append("<li><div>" + "X" + "</div></li>"); // ok ça
-    
+
     $("#choix > li").addClass("draggable");
 }
 

@@ -108,6 +108,7 @@ h1 {
     height: 360px;
     max-width: 100%;
     background-color: #FEFEFE;
+
     /* gap: 2vmin; */
     /* overflow:hidden; */
 }
@@ -158,6 +159,23 @@ h1 {
     border: 2px solid black;
     margin: 0 1.5em 0em;
     transition: all 25ms 100ms ease-in-out;
+    list-style-type: none;
+}
+
+#resultat>li {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    font-style: oblique;
+}
+
+.supprimerLi {
+    margin-right: 10px;
+    margin-left: 10px;
+    /*transition: all 25ms 100ms ease-in-out;*/
+}
+
+.supprimerLi:hover {
+    color: red;
 }
 
 #resultat:hover {
