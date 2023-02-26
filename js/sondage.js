@@ -223,9 +223,7 @@ const startSondage = () => {
     verifForm();
     // buttonEnv();
     // searchBox();
-    $("#choix").append("<li><div>" + "X" + "</div></li>"); // ok ça
-
-    $("#choix > li").addClass("draggable");
+    //$("#choix").append("<li><div>" + "X" + "</div></li>"); // ok ça
 }
 
 window.addEventListener("DOMContentLoaded", startSondage);

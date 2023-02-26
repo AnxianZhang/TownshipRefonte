@@ -25,6 +25,10 @@ export class Click {
     //     });
     // }
 
+    static changeCursor = (cursorname) => {
+        $(".supprimerLi").style.cursor = cursorname;
+    }
+
     static ereaseIndividualButton = () => {
         $(".supprimerLi").click(function () {
             let caca = $(this).parent().parent().html();
@@ -32,7 +36,7 @@ export class Click {
             $('#choix').append(caca);
             $(" #choix > li > .supprimerLi").remove();
             $("#choix > li").removeAttr('style');
-            /*Click.click();*/
+            Click.click();
         });
     }
 
@@ -41,18 +45,33 @@ export class Click {
         liADeplacer.click(function () {
             var nouvelEmplacement = $("#resultat");
             $(this).appendTo(nouvelEmplacement).css("display", "flex");
-            $("<div class='supprimerLi'>X</div>").prependTo($(this)).css("flex-direction", "flex-start");
+            if (!$(this).find('div:contains("X")').length) {
+                $("<div class='supprimerLi'>X</div>").prependTo($(this)).css("flex-direction", "flex-start");
+                $('.supprimerLi').css('cursor', 'pointer');
+            }
             Click.ereaseIndividualButton();
             $(this).off("click");
         });
+
+        function adjustHeight() {
+            const height = 100 + ($('#resultat > li').length * 40); // hauteur minimale + hauteur de chaque élément
+            $('#resultat').height(height);
+        }
+        adjustHeight();
+        $('#resultat').on('DOMNodeInserted DOMNodeRemoved', adjustHeight);
     }
 
     static ereaseButton = () => {
+        $('#effacer').css('cursor', 'pointer');
         $("#effacer").click(function () {
-            $("#resultat > li").removeClass("supprimerLi");
-            $("#resultat > li").appendTo("#choix");
+            let caca = $("#resultat > li");
+            $('#choix').append(caca);
+            $(" #choix > li > .supprimerLi").remove();
+            $("#choix > li").removeAttr('style');
+            Click.click();
         });
     }
+
 
     // static bin = () => {
     //     $("#poubelle").droppable({
