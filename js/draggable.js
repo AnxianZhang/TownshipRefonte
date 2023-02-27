@@ -42,6 +42,7 @@ export class Click {
 
     static click = () => {
         var liADeplacer = $("#choix > li");
+        liADeplacer.css('cursor', 'pointer');
         liADeplacer.click(function () {
             var nouvelEmplacement = $("#resultat");
             $(this).appendTo(nouvelEmplacement).css("display", "flex");
@@ -63,6 +64,7 @@ export class Click {
 
     static ereaseButton = () => {
         $('#effacer').css('cursor', 'pointer');
+        $('#env').css('cursor', 'pointer');
         $("#effacer").click(function () {
             let caca = $("#resultat > li");
             $('#choix').append(caca);

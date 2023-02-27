@@ -178,6 +178,25 @@ h1 {
     color: red;
 }
 
+body::-webkit-scrollbar {
+    width: 10px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: rgb(188, 188, 188);
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(173, 173, 173);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 1px solid rgb(66, 65, 65);
+    /* creates padding around scroll thumb */
+}
+
 #resultat:hover {
     border-color: #00ff00;
     border-width: 0.15em;
