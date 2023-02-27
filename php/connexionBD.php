@@ -2,7 +2,7 @@
     $hostName = "localhost";
     $base = "sondage";
     $loginBD = "root";
-    $passWordBD = "";
+    $passWordBD = "root";
 
     try{
         $DSN = "mysql:server=$hostName; dbname=$base";
