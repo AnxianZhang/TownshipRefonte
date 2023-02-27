@@ -110,7 +110,7 @@ const addEventToSeachBox = () =>{
             searchBox(clickedInputId);
         }
         if (event.keyCode == 13 && !hasOneCheckedBox()) {
-            $('#choix').html("<li>" + "filtrer avant rechercher" + "</li>");
+            $('#choix').html("<h2>Veuillez filtrer avant d'éffectuer une recherche</h2>");
         }
         // else {
         //     $('#choix').html("<li>" + "filtrer avant rechercher" + "</li>");
@@ -118,12 +118,20 @@ const addEventToSeachBox = () =>{
     });
 }
 
+const removeTips = isRemoved =>{
+    if (!isRemoved){
+        $("div#choix h2").remove();
+    }
+}
+
 const choixCates = () => {
+    let isRemoved = false;
     // console.log(document.querySelectorAll("input[name='category']").length);
     let labels = Array.from(document.querySelectorAll("#filtre label"));
     Array.from(document.querySelectorAll("input[type=checkbox]")).forEach(input => {
         // $("input[type=checkbox]").click(function(){
         input.addEventListener("change", function () {
+            removeTips(isRemoved);
             previousResearch = " ";
             // $("#choix").append("<li><div>" + "aze"+ "</div></li>");
             // $("#choix li").addClass("draggable");
