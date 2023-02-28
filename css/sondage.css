@@ -167,6 +167,42 @@ h1 {
     border: 2px solid black;
     margin: 0 1.5em 0em;
     transition: all 25ms 100ms ease-in-out;
+    list-style-type: none;
+}
+
+#resultat>li {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    font-style: oblique;
+}
+
+.supprimerLi {
+    margin-right: 10px;
+    margin-left: 10px;
+    /*transition: all 25ms 100ms ease-in-out;*/
+}
+
+.supprimerLi:hover {
+    color: red;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: rgb(188, 188, 188);
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(173, 173, 173);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 1px solid rgb(66, 65, 65);
+    /* creates padding around scroll thumb */
 }
 
 #resultat:hover {

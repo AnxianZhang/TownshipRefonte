@@ -1,4 +1,4 @@
-import {Draggable} from './Draggable.js';
+import { Click } from './Draggable.js';
 
 const verifForm = () => {
     document.querySelector("button#env").addEventListener("click", () => {
@@ -162,7 +162,8 @@ const choixCates = () => {
                     // $(".ligne").html(data);
                     // if(data!=null)
                     addFilterchoisi(data);
-                    Draggable.myDraggableAndDroppable();
+                    Click.click();
+                    // Click.ereaseIndividualButton();
                     //searchBox(data);
                     // else
                     // $("#infopers").html(data);
@@ -203,7 +204,7 @@ const searchBox = clickedInput => {
         },
         success: result => {
             addChoixAliment(result);
-            Draggable.myDraggableAndDroppable();
+            // Draggable.myDraggableAndDroppable();
             // $("#infopers").html("output: " + result);
             // console.log("lenght :", result);
         },
@@ -227,16 +228,17 @@ const buttonEnv = () => {
 }
 
 const startSondage = () => {
-    Draggable.ereaseButton();
-    Draggable.bin();
-    
+    Click.ereaseButton();
+    //Click.bin();
+
     getDefaultCates();
     addEventToSeachBox();
     // getDefaultAliments();
     // choixCates();
     verifForm();
     // buttonEnv();
-    // searchBox();    
+    // searchBox();
+    //$("#choix").append("<li><div>" + "X" + "</div></li>"); // ok ça
 }
 
 window.addEventListener("DOMContentLoaded", startSondage);
