@@ -150,6 +150,7 @@ const choixCates = () => {
                     // if(data!=null)
                     addFilterchoisi(data);
                     Click.click();
+                    // Click.ereaseIndividualButton();
                     //searchBox(data);
                     // else
                     // $("#infopers").html(data);
@@ -189,7 +190,7 @@ const searchBox = clickedInput => {
         },
         success: result => {
             addChoixAliment(result);
-            Draggable.myDraggableAndDroppable();
+            // Draggable.myDraggableAndDroppable();
             // $("#infopers").html("output: " + result);
             // console.log("lenght :", result);
         },

@@ -29,29 +29,30 @@ export class Click {
         $(".supprimerLi").style.cursor = cursorname;
     }
 
-    static ereaseIndividualButton = () => {
-        $(".supprimerLi").click(function () {
-            let caca = $(this).parent().parent().html();
-            $(this).parent().remove();
-            $('#choix').append(caca);
-            $(" #choix > li > .supprimerLi").remove();
-            $("#choix > li").removeAttr('style');
-            Click.click();
-        });
-    }
-
     static click = () => {
-        var liADeplacer = $("#choix > li");
+        let liADeplacer = $("#choix > li");
         liADeplacer.css('cursor', 'pointer');
-        liADeplacer.click(function () {
-            var nouvelEmplacement = $("#resultat");
+        liADeplacer.on("click", function () {
+            // $(this).off("click");
+            let nouvelEmplacement = $("#resultat");
             $(this).appendTo(nouvelEmplacement).css("display", "flex");
             if (!$(this).find('div:contains("X")').length) {
-                $("<div class='supprimerLi'>X</div>").prependTo($(this)).css("flex-direction", "flex-start");
-                $('.supprimerLi').css('cursor', 'pointer');
+                $("<div class='supprimerLi'>X</div>")
+                .prependTo($(this))
+                .css("flex-direction", "flex-start")
+                .css('cursor', 'pointer')
+                .on("click", function () {
+                    // console.log($(this).parent().html());
+                    let aliment = $(this).parent().html(); // va chercher la <li>
+                    // console.log($(this).parent().html());
+                    $(this).parent().remove();
+                    $('#choix').append("<li>"+aliment+"</li>");
+                    $(" #choix > li > .supprimerLi").remove();
+                    $("#choix > li").removeAttr('style');
+                    Click.click();
+                });
             }
-            Click.ereaseIndividualButton();
-            $(this).off("click");
+            // Click.ereaseIndividualButton();
         });
 
         function adjustHeight() {
