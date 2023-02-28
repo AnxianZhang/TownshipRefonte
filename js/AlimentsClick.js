@@ -1,4 +1,4 @@
-export class Click {
+export class AlimentsClick {
     // static myDraggableAndDroppable = () => {
     //     $("#choix > li").addClass("draggable");
     //     $(".draggable").draggable({
@@ -33,24 +33,24 @@ export class Click {
         let liADeplacer = $("#choix > li");
         liADeplacer.css('cursor', 'pointer');
         liADeplacer.on("click", function () {
-            // $(this).off("click");
+            $(this).off("click");
             let nouvelEmplacement = $("#resultat");
             $(this).appendTo(nouvelEmplacement).css("display", "flex");
             if (!$(this).find('div:contains("X")').length) {
                 $("<div class='supprimerLi'>X</div>")
-                .prependTo($(this))
-                .css("flex-direction", "flex-start")
-                .css('cursor', 'pointer')
-                .on("click", function () {
-                    // console.log($(this).parent().html());
-                    let aliment = $(this).parent().html(); // va chercher la <li>
-                    // console.log($(this).parent().html());
-                    $(this).parent().remove();
-                    $('#choix').append("<li>"+aliment+"</li>");
-                    $(" #choix > li > .supprimerLi").remove();
-                    $("#choix > li").removeAttr('style');
-                    Click.click();
-                });
+                    .prependTo($(this))
+                    .css("flex-direction", "flex-start")
+                    .css('cursor', 'pointer')
+                    .on("click", function () {
+                        // console.log($(this).parent().html());
+                        let aliment = $(this).parent().html(); // va chercher la <li>
+                        // console.log($(this).parent().html());
+                        $(this).parent().remove();
+                        $('#choix').append("<li>" + aliment + "</li>");
+                        $(" #choix > li > .supprimerLi").remove();
+                        $("#choix > li").removeAttr('style');
+                        AlimentsClick.click();
+                    });
             }
             // Click.ereaseIndividualButton();
         });
@@ -71,7 +71,7 @@ export class Click {
             $('#choix').append(caca);
             $(" #choix > li > .supprimerLi").remove();
             $("#choix > li").removeAttr('style');
-            Click.click();
+            AlimentsClick.click();
         });
     }
 

@@ -1,4 +1,4 @@
-import { Click } from './Draggable.js';
+import { AlimentsClick } from './AlimentsClick.js';
 
 const verifForm = () => {
     document.querySelector("button#env").addEventListener("click", () => {
@@ -58,10 +58,10 @@ const getDefaultCates = () => {
 
 
 const checkboxOnlyOne = clickedInput => {
-    document.querySelectorAll("input[type=checkbox]").forEach(input => {
-        input.checked = false;
+    $("input[type=checkbox]").each(function () {
+        $(this).prop("checked", false);
     });
-    clickedInput.checked = true;
+    clickedInput.prop("checked", true);
     $("#search").val("");
 }
 
@@ -102,10 +102,10 @@ const hasOneCheckedBox = () => {
 
 let previousResearch = " ";
 
-const addEventToSeachBox = () =>{
+const addEventToSeachBox = () => {
     $("#search").keyup(function (event) {
         if (event.keyCode == 13 && $.trim($(this).val()) != "" && hasOneCheckedBox() && $(this).val() != previousResearch) {
-            previousResearch = $(this).val()
+            previousResearch = $(this).val();
             console.log($(this).val());
             searchBox(clickedInputId);
         }
@@ -118,32 +118,39 @@ const addEventToSeachBox = () =>{
     });
 }
 
-const removeTips = isRemoved =>{
-    if (!isRemoved){
+const removeTips = isRemoved => {
+    if (!isRemoved) {
         $("div#choix h2").remove();
     }
 }
 
+let previousCkeckedBox = " ";
+
 const choixCates = () => {
     let isRemoved = false;
     // console.log(document.querySelectorAll("input[name='category']").length);
-    let labels = Array.from(document.querySelectorAll("#filtre label"));
-    Array.from(document.querySelectorAll("input[type=checkbox]")).forEach(input => {
-        // $("input[type=checkbox]").click(function(){
-        input.addEventListener("change", function () {
-            removeTips(isRemoved);
-            previousResearch = " ";
-            // $("#choix").append("<li><div>" + "aze"+ "</div></li>");
-            // $("#choix li").addClass("draggable");
-            checkboxOnlyOne(this);
-            clickedInputId = this.getAttribute("id");
-            // $("#search").keyup(function (event) {
-            //     if (event.keyCode == 13) {
-            //         console.log($(this).val());
-            //         searchBox(clickedInputId);
-            //     }
-            // });
-
+    // let labels = Array.from(document.querySelectorAll("#filtre label"));
+    let labels = $("#filtre label").toArray();
+    // Array.from(document.querySelectorAll("input[type=checkbox]")).forEach(input => {
+    // $("input[type=checkbox]").click(function(){
+    $("input[type=checkbox]").on("change", function () {
+        previousResearch = " "; // init the var, because in another section we can make the same research with the same string
+        removeTips(isRemoved);
+        // $("#choix").append("<li><div>" + "aze"+ "</div></li>");
+        // $("#choix li").addClass("draggable");
+        checkboxOnlyOne($(this));
+        clickedInputId = $(this).attr("id");
+        // console.log($(this).attr("id"));
+        // console.log($("#filtre label").toArray()[$(this).attr("id")].textContent);
+        // $("#search").keyup(function (event) {
+        //     if (event.keyCode == 13) {
+        //         console.log($(this).val());
+        //         searchBox(clickedInputId);
+        //     }
+        // });
+        // console.log(previousCkeckedBox);
+        if (previousCkeckedBox != labels[clickedInputId].textContent) {
+            previousCkeckedBox = labels[clickedInputId].textContent;
             let url = "./php/filtres.php";
             let allCategory = labels[clickedInputId].textContent;
             // console.log(allCategory);
@@ -162,7 +169,7 @@ const choixCates = () => {
                     // $(".ligne").html(data);
                     // if(data!=null)
                     addFilterchoisi(data);
-                    Click.click();
+                    AlimentsClick.click();
                     // Click.ereaseIndividualButton();
                     //searchBox(data);
                     // else
@@ -179,8 +186,9 @@ const choixCates = () => {
                 }
                 // $("#choix > li").addClass("draggable");
             }
-        });
+        }
     });
+    // });
 }
 
 const searchBox = clickedInput => {
@@ -204,6 +212,8 @@ const searchBox = clickedInput => {
         },
         success: result => {
             addChoixAliment(result);
+            AlimentsClick.click();
+
             // Draggable.myDraggableAndDroppable();
             // $("#infopers").html("output: " + result);
             // console.log("lenght :", result);
@@ -228,7 +238,7 @@ const buttonEnv = () => {
 }
 
 const startSondage = () => {
-    Click.ereaseButton();
+    AlimentsClick.ereaseButton();
     //Click.bin();
 
     getDefaultCates();

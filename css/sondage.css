@@ -119,7 +119,7 @@ h1 {
     flex-grow: 10;
 }
 
-#choix h2{
+#choix h2 {
     text-align: center;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -302,7 +302,7 @@ body::-webkit-scrollbar-thumb {
     color: #66c7ff;
 }
 
-div#filtre label{
+div#filtre label {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -345,19 +345,19 @@ footer {
 }
 
 @media screen and (max-width: 850px) {
-    #choix h2{
+    #choix h2 {
         font-size: 2em;
         width: 10em;
     }
 }
 
 @media screen and (max-width: 550px) {
-    #infopers input:not(#inputage){
+    #infopers input:not(#inputage) {
         /* font-size: 1em; */
         width: 15em;
     }
 
-    #inputage{
+    #inputage {
         width: 5em;
     }
 }
