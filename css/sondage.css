@@ -109,6 +109,7 @@ h1 {
     max-width: 100%;
     background-color: #FEFEFE;
     position: relative;
+    cursor: pointer;
     /* gap: 2vmin; */
     /* overflow:hidden; */
 }
@@ -127,20 +128,21 @@ h1 {
     left: 50%;
 }
 
-#filtre::-webkit-scrollbar,
+/* #filtre::-webkit-scrollbar,
 #choix::-webkit-scrollbar {
     display: none;
-    /*scroll invisible Chrome Safari */
-}
+    scroll invisible Chrome Safari
+} */
 
 #filtre,
 #choix {
-    scrollbar-width: none;
-    /*scroll invisible firefox */
-    -ms-overflow-style: none;
-    /*scroll invisible IE 10+ */
-    overflow-x: hidden;
-    overflow-y: auto;
+    /* scrollbar-width: none; */
+    /* scroll invisible firefox */
+    /* -ms-overflow-style: none; */
+    /* scroll invisible IE 10+ */
+    /* overflow-x: scroll;
+    overflow-y: scroll; */
+    overflow: auto;
 }
 
 
@@ -184,25 +186,6 @@ h1 {
 
 .supprimerLi:hover {
     color: red;
-}
-
-body::-webkit-scrollbar {
-    width: 10px;
-    /* width of the entire scrollbar */
-}
-
-body::-webkit-scrollbar-track {
-    background: rgb(188, 188, 188);
-    /* color of the tracking area */
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: rgb(173, 173, 173);
-    /* color of the scroll thumb */
-    border-radius: 20px;
-    /* roundness of the scroll thumb */
-    border: 1px solid rgb(66, 65, 65);
-    /* creates padding around scroll thumb */
 }
 
 #resultat:hover {
@@ -302,7 +285,7 @@ body::-webkit-scrollbar-thumb {
     color: #66c7ff;
 }
 
-div#filtre label {
+div#filtre label, #choix li, #resultat li{
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;

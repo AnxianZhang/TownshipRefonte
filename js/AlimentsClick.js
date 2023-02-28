@@ -31,13 +31,14 @@ export class AlimentsClick {
 
     static click = () => {
         let liADeplacer = $("#choix > li");
-        liADeplacer.css('cursor', 'pointer');
+        // liADeplacer.css('cursor', 'pointer');
         liADeplacer.on("click", function () {
+            liADeplacer.css('cursor', 'auto');
             $(this).off("click");
             let nouvelEmplacement = $("#resultat");
             $(this).appendTo(nouvelEmplacement).css("display", "flex");
             if (!$(this).find('div:contains("X")').length) {
-                $("<div class='supprimerLi'>X</div>")
+                $("<div class='supprimerLi'>✘</div>")
                     .prependTo($(this))
                     .css("flex-direction", "flex-start")
                     .css('cursor', 'pointer')
@@ -67,8 +68,8 @@ export class AlimentsClick {
         $('#effacer').css('cursor', 'pointer');
         $('#env').css('cursor', 'pointer');
         $("#effacer").click(function () {
-            let caca = $("#resultat > li");
-            $('#choix').append(caca);
+            let aliments = $("#resultat > li");
+            $('#choix').append(aliments);
             $(" #choix > li > .supprimerLi").remove();
             $("#choix > li").removeAttr('style');
             AlimentsClick.click();
