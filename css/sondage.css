@@ -108,7 +108,8 @@ h1 {
     height: 360px;
     max-width: 100%;
     background-color: #FEFEFE;
-
+    position: relative;
+    cursor: pointer;
     /* gap: 2vmin; */
     /* overflow:hidden; */
 }
@@ -119,20 +120,29 @@ h1 {
     flex-grow: 10;
 }
 
-#filtre::-webkit-scrollbar,
+#choix h2 {
+    text-align: center;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+/* #filtre::-webkit-scrollbar,
 #choix::-webkit-scrollbar {
     display: none;
-    /*scroll invisible Chrome Safari */
-}
+    scroll invisible Chrome Safari
+} */
 
 #filtre,
 #choix {
-    scrollbar-width: none;
-    /*scroll invisible firefox */
-    -ms-overflow-style: none;
-    /*scroll invisible IE 10+ */
-    overflow-x: hidden;
-    overflow-y: auto;
+    /* scrollbar-width: none; */
+    /* scroll invisible firefox */
+    /* -ms-overflow-style: none; */
+    /* scroll invisible IE 10+ */
+    /* overflow-x: scroll;
+    overflow-y: scroll; */
+    overflow: auto;
 }
 
 
@@ -275,6 +285,12 @@ h1 {
     color: #66c7ff;
 }
 
+div#filtre label, #choix li, #resultat li{
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 #inputage {
     width: 10em;
     height: 3em;
@@ -309,4 +325,22 @@ h1 {
 
 footer {
     margin-top: 5em;
+}
+
+@media screen and (max-width: 850px) {
+    #choix h2 {
+        font-size: 2em;
+        width: 10em;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #infopers input:not(#inputage) {
+        /* font-size: 1em; */
+        width: 15em;
+    }
+
+    #inputage {
+        width: 5em;
+    }
 }

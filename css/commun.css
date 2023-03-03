@@ -8,6 +8,25 @@
     scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(188, 188, 188);
+    /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 1px solid rgb(66, 65, 65);
+    /* creates padding around scroll thumb */
+}
+
 .fixe-to-top{
     padding-top: 1em;
 }

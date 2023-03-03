@@ -1,4 +1,4 @@
-import { Click } from './Draggable.js';
+import { AlimentsClick } from './AlimentsClick.js';
 
 const verifForm = () => {
     document.querySelector("button#env").addEventListener("click", () => {
@@ -58,10 +58,10 @@ const getDefaultCates = () => {
 
 
 const checkboxOnlyOne = clickedInput => {
-    document.querySelectorAll("input[type=checkbox]").forEach(input => {
-        input.checked = false;
+    $("input[type=checkbox]").each(function () {
+        $(this).prop("checked", false);
     });
-    clickedInput.checked = true;
+    clickedInput.prop("checked", true);
     $("#search").val("");
 }
 
@@ -100,11 +100,17 @@ const hasOneCheckedBox = () => {
     return is;
 }
 
+let previousResearch = " ";
+
 const addEventToSeachBox = () => {
     $("#search").keyup(function (event) {
-        if (event.keyCode == 13 && $.trim($(this).val()) != "" && hasOneCheckedBox()) {
+        if (event.keyCode == 13 && $.trim($(this).val()) != "" && hasOneCheckedBox() && $(this).val() != previousResearch) {
+            previousResearch = $(this).val();
             console.log($(this).val());
             searchBox(clickedInputId);
+        }
+        if (event.keyCode == 13 && !hasOneCheckedBox()) {
+            $('#choix').html("<h2>Veuillez filtrer avant d'éffectuer une recherche</h2>");
         }
         // else {
         //     $('#choix').html("<li>" + "filtrer avant rechercher" + "</li>");
@@ -112,25 +118,39 @@ const addEventToSeachBox = () => {
     });
 }
 
+const removeTips = isRemoved => {
+    if (!isRemoved) {
+        $("div#choix h2").remove();
+    }
+}
+
+let previousCkeckedBox = " ";
+
 const choixCates = () => {
-    let previousResearch = " ";
+    let isRemoved = false;
     // console.log(document.querySelectorAll("input[name='category']").length);
-    let labels = Array.from(document.querySelectorAll("#filtre label"));
-    Array.from(document.querySelectorAll("input[type=checkbox]")).forEach(input => {
-        // $("input[type=checkbox]").click(function(){
-
-        input.addEventListener("change", function () {
-            // $("#choix").append("<li><div>" + "aze"+ "</div></li>");
-            // $("#choix li").addClass("draggable");
-            checkboxOnlyOne(this);
-            clickedInputId = this.getAttribute("id");
-            // $("#search").keyup(function (event) {
-            //     if (event.keyCode == 13) {
-            //         console.log($(this).val());
-            //         searchBox(clickedInputId);
-            //     }
-            // });
-
+    // let labels = Array.from(document.querySelectorAll("#filtre label"));
+    let labels = $("#filtre label").toArray();
+    // Array.from(document.querySelectorAll("input[type=checkbox]")).forEach(input => {
+    // $("input[type=checkbox]").click(function(){
+    $("input[type=checkbox]").on("change", function () {
+        previousResearch = " "; // init the var, because in another section we can make the same research with the same string
+        removeTips(isRemoved);
+        // $("#choix").append("<li><div>" + "aze"+ "</div></li>");
+        // $("#choix li").addClass("draggable");
+        checkboxOnlyOne($(this));
+        clickedInputId = $(this).attr("id");
+        // console.log($(this).attr("id"));
+        // console.log($("#filtre label").toArray()[$(this).attr("id")].textContent);
+        // $("#search").keyup(function (event) {
+        //     if (event.keyCode == 13) {
+        //         console.log($(this).val());
+        //         searchBox(clickedInputId);
+        //     }
+        // });
+        // console.log(previousCkeckedBox);
+        if (previousCkeckedBox != labels[clickedInputId].textContent) {
+            previousCkeckedBox = labels[clickedInputId].textContent;
             let url = "./php/filtres.php";
             let allCategory = labels[clickedInputId].textContent;
             // console.log(allCategory);
@@ -149,7 +169,8 @@ const choixCates = () => {
                     // $(".ligne").html(data);
                     // if(data!=null)
                     addFilterchoisi(data);
-                    Click.click();
+                    AlimentsClick.click();
+                    // Click.ereaseIndividualButton();
                     //searchBox(data);
                     // else
                     // $("#infopers").html(data);
@@ -165,14 +186,16 @@ const choixCates = () => {
                 }
                 // $("#choix > li").addClass("draggable");
             }
-        });
+        }
     });
+    // });
 }
 
 const searchBox = clickedInput => {
     // $("#search").keyup(function (event) {
     //     if (event.keyCode == 13) {
     //TODO
+    // console.log("hola qetal");
     let labels = Array.from(document.querySelectorAll("#filtre label"));
     let category = labels[clickedInput].textContent;
     // console.log("input:", motS,", ", category);            
@@ -189,7 +212,9 @@ const searchBox = clickedInput => {
         },
         success: result => {
             addChoixAliment(result);
-            Draggable.myDraggableAndDroppable();
+            AlimentsClick.click();
+
+            // Draggable.myDraggableAndDroppable();
             // $("#infopers").html("output: " + result);
             // console.log("lenght :", result);
         },
@@ -213,7 +238,7 @@ const buttonEnv = () => {
 }
 
 const startSondage = () => {
-    Click.ereaseButton();
+    AlimentsClick.ereaseButton();
     //Click.bin();
 
     getDefaultCates();
