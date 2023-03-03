@@ -1,0 +1,1 @@
+create table UserSeq(num int auto_increment primary key) ;
