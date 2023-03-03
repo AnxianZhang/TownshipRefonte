@@ -19,7 +19,13 @@ $(document).ready(function(){
            url : "./php/ResultRegister.php",
            type:  "post",
 
-           data : {tab : getFood()},
+           data : {tab : getFood(),
+               nom: document.querySelector("input[name=nom]").value,
+               prenom: document.querySelector("input[name=prenom]").value,
+               age: document.querySelector("input[name=age]").value
+
+
+           },
            success: data => {
                //$("#choix").html(data);
 
