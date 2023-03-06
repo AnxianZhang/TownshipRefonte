@@ -37,7 +37,7 @@ export class AlimentsClick {
             $(this).off("click");
             let nouvelEmplacement = $("#resultat");
             $(this).appendTo(nouvelEmplacement).css("display", "flex");
-            if (!$(this).find('div:contains("X")').length) {
+            if (!$(this).find('div:contains("✘")').length) {
                 $("<div class='supprimerLi'>✘</div>")
                     .prependTo($(this))
                     .css("flex-direction", "flex-start")
@@ -45,10 +45,10 @@ export class AlimentsClick {
                     .on("click", function () {
                         // console.log($(this).parent().html());
                         let aliment = $(this).parent().html(); // va chercher la <li>
-                        // console.log($(this).parent().html());
+                        // console.log(aliment);
+                        $("#choix > li > .supprimerLi").remove();
                         $(this).parent().remove();
                         $('#choix').append("<li>" + aliment + "</li>");
-                        $(" #choix > li > .supprimerLi").remove();
                         $("#choix > li").removeAttr('style');
                         AlimentsClick.click();
                     });
