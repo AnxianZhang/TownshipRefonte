@@ -46,9 +46,9 @@ export class AlimentsClick {
                         // console.log($(this).parent().html());
                         let aliment = $(this).parent().html(); // va chercher la <li>
                         // console.log(aliment);
-                        $("#choix > li > .supprimerLi").remove();
                         $(this).parent().remove();
                         $('#choix').append("<li>" + aliment + "</li>");
+                        $("#choix > li > .supprimerLi").remove();
                         $("#choix > li").removeAttr('style');
                         AlimentsClick.click();
                     });
