@@ -8,10 +8,13 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="icon" href="./img/icon/icon.png" type="image/icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <script src="./js/communes.js"> </script>
     <script src="./js/navBar.js"> </script>
     <script src="./js/doubleClick.js"> </script>
+    <script src="./js/showResult.js"> </script>
     <!-- <script src="./js/sondage.js"> </script> -->
 
     <link rel="stylesheet" href="./css/commun.css">
@@ -74,9 +77,9 @@
     </div>
     <div class="ligne"></div>
     <div id="resuGra">
-        <div id="histogramme1" class="caseGraphe">
+        <canvas id="histogramme1" class="caseGraphe">
 
-        </div>
+        </canvas>
         <div id="histogramme2" class="caseGraphe">
 
         </div>
