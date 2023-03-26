@@ -18,6 +18,6 @@ CREATE TABLE Resultat(
    Id_Aliment INT,
    Id_sondage INT,
    CONSTRAINT PK_Resultat PRIMARY KEY(Id_Aliment, Id_sondage),
-   CONSTRAINT FK_Resultat_Aliment FOREIGN KEY(Id_Aliment) REFERENCES Aliments(Id_Aliment) ON DELETE CASCADE,
+   CONSTRAINT FK_Resultat_Aliment FOREIGN KEY(Id_Aliment) REFERENCES Aliments(alim_code) ON DELETE CASCADE,
    CONSTRAINT FK_Resultat_Sondage FOREIGN KEY(Id_sondage) REFERENCES Sondage(Id_sondage) ON DELETE CASCADE
 );

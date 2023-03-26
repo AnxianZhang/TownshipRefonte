@@ -1,6 +1,6 @@
 DELIMITER //
 
-CREATE FUNCTION getID() RETURNS int DETERMINISTIC
+CREATE OR REPLACE FUNCTION getID() RETURNS int DETERMINISTIC
 BEGIN
 
 insert into userseq(num) values(default) ;

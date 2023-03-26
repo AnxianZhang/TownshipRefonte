@@ -1,13 +1,35 @@
 import { AlimentsClick } from './AlimentsClick.js';
 
+const getFood = () => {
+    var foods = $("#resultat li div:last-child");
+    var result = [];
+
+    for (let pas = 0; pas < foods.length; pas++) {
+
+        result.push(foods[pas].innerHTML);
+
+    }
+    return result;
+}
+
+const verifLength = () => {
+    if ($("#resultat").children().length == 10) {
+        $("#choix > li").off("click");
+        return;
+    }
+    
+    AlimentsClick.click();
+}
+
 const verifForm = () => {
     document.querySelector("button#env").addEventListener("click", () => {
         $.ajax({
             async: true,
             type: "post",
 
-            url: "./php/verifPersonalData.php",
+            url: "./php/ResultRegister.php",
             data: {
+                tab: getFood(),
                 nom: document.querySelector("input[name=nom]").value,
                 prenom: document.querySelector("input[name=prenom]").value,
                 age: document.querySelector("input[name=age]").value
@@ -15,7 +37,7 @@ const verifForm = () => {
             success: data => {
                 //alert(data);
                 if (data == "GG") {
-                    buttonEnv();
+                    $(location).attr("href", "./resultat.html");
                 }
                 else {
                     alert(data);
@@ -65,29 +87,6 @@ const checkboxOnlyOne = clickedInput => {
     $("#search").val("");
 }
 
-// const getDefaultAliments = () => {
-//     let url = "./php/getDefaultAliment.php";
-//     $.ajax({
-//         async: true,
-//         contentType: "application/x-www-form-urlencoded",
-//         type: "POST",
-//         url: url,
-//         dataType: "json",
-//         success: data => {
-//             addChoixAliment(data);
-//         },
-//         error: () => {
-//             alert("Problem occured in ajax of Sondage.js 2");
-//         }
-//     });
-
-//     const addChoixAliment = data => {
-//         for (let value of data) {
-//             $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
-//         }
-//     }
-// };
-
 let clickedInputId;
 
 const hasOneCheckedBox = () => {
@@ -106,15 +105,11 @@ const addEventToSeachBox = () => {
     $("#search").keyup(function (event) {
         if (event.keyCode == 13 && $.trim($(this).val()) != "" && hasOneCheckedBox() && $(this).val() != previousResearch) {
             previousResearch = $(this).val();
-            console.log($(this).val());
             searchBox(clickedInputId);
         }
         if (event.keyCode == 13 && !hasOneCheckedBox()) {
             $('#choix').html("<h2>Veuillez filtrer avant d'éffectuer une recherche</h2>");
         }
-        // else {
-        //     $('#choix').html("<li>" + "filtrer avant rechercher" + "</li>");
-        // }
     });
 }
 
@@ -128,27 +123,13 @@ let previousCkeckedBox = " ";
 
 const choixCates = () => {
     let isRemoved = false;
-    // console.log(document.querySelectorAll("input[name='category']").length);
-    // let labels = Array.from(document.querySelectorAll("#filtre label"));
     let labels = $("#filtre label").toArray();
-    // Array.from(document.querySelectorAll("input[type=checkbox]")).forEach(input => {
-    // $("input[type=checkbox]").click(function(){
     $("input[type=checkbox]").on("change", function () {
         previousResearch = " "; // init the var, because in another section we can make the same research with the same string
         removeTips(isRemoved);
-        // $("#choix").append("<li><div>" + "aze"+ "</div></li>");
-        // $("#choix li").addClass("draggable");
         checkboxOnlyOne($(this));
         clickedInputId = $(this).attr("id");
-        // console.log($(this).attr("id"));
-        // console.log($("#filtre label").toArray()[$(this).attr("id")].textContent);
-        // $("#search").keyup(function (event) {
-        //     if (event.keyCode == 13) {
-        //         console.log($(this).val());
-        //         searchBox(clickedInputId);
-        //     }
-        // });
-        // console.log(previousCkeckedBox);
+
         if (previousCkeckedBox != labels[clickedInputId].textContent) {
             previousCkeckedBox = labels[clickedInputId].textContent;
             let url = "./php/filtres.php";
@@ -166,14 +147,8 @@ const choixCates = () => {
                 dataType: "json",
                 data: data1,
                 success: data => {
-                    // $(".ligne").html(data);
-                    // if(data!=null)
                     addFilterchoisi(data);
-                    AlimentsClick.click();
-                    // Click.ereaseIndividualButton();
-                    //searchBox(data);
-                    // else
-                    // $("#infopers").html(data);
+                    verifLength();
                 },
                 error: () => {
                     alert("Problem occured in ajax of Sondage.js 3");
@@ -184,7 +159,6 @@ const choixCates = () => {
                 for (let value of data) {
                     $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
                 }
-                // $("#choix > li").addClass("draggable");
             }
         }
     });
@@ -192,14 +166,9 @@ const choixCates = () => {
 }
 
 const searchBox = clickedInput => {
-    // $("#search").keyup(function (event) {
-    //     if (event.keyCode == 13) {
-    //TODO
-    // console.log("hola qetal");
     let labels = Array.from(document.querySelectorAll("#filtre label"));
     let category = labels[clickedInput].textContent;
-    // console.log("input:", motS,", ", category);            
-    // console.log("cat = " + category);
+
     $.ajax({
         async: true,
         contentType: "application/x-www-form-urlencoded",
@@ -212,11 +181,7 @@ const searchBox = clickedInput => {
         },
         success: result => {
             addChoixAliment(result);
-            AlimentsClick.click();
-
-            // Draggable.myDraggableAndDroppable();
-            // $("#infopers").html("output: " + result);
-            // console.log("lenght :", result);
+            verifLength();
         },
         error: () => {
             alert("Problem occured in ajax of Sondage.js 4");
@@ -231,24 +196,17 @@ const searchBox = clickedInput => {
     }
 }
 
-const buttonEnv = () => {
-    $("#env").click(function () {
-        $(location).attr("href", "./resultat.html")
-    });
-}
-
 const startSondage = () => {
     AlimentsClick.ereaseButton();
-    //Click.bin();
-
     getDefaultCates();
     addEventToSeachBox();
-    // getDefaultAliments();
-    // choixCates();
     verifForm();
-    // buttonEnv();
-    // searchBox();
-    //$("#choix").append("<li><div>" + "X" + "</div></li>"); // ok ça
+
+    $("#resultat").on("DOMNodeInserted", function (){
+        if ($(this).children().length == 10) {
+            $("#choix > li").off("click");
+        }
+    });
 }
 
 window.addEventListener("DOMContentLoaded", startSondage);

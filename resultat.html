@@ -14,8 +14,8 @@
     <script src="./js/communes.js"> </script>
     <script src="./js/navBar.js"> </script>
     <script src="./js/doubleClick.js"> </script>
-    <script src="./js/showResult.js"> </script>
-    <!-- <script src="./js/sondage.js"> </script> -->
+
+    <script type="module" src="./js/showResult.js"> </script>
 
     <link rel="stylesheet" href="./css/commun.css">
     <link rel="stylesheet" href="./css/resultat.css">
@@ -71,21 +71,32 @@
     </header>
 
     <div class="fixe-to-top" id="com-sondage">
-        <h1>resultat</h1>
+        <h1>Les resultat</h1>
         <p>Merci d'avoir participé(e) !<br>
             Voici les résultats au sondage</p>
     </div>
     <div class="ligne"></div>
-    <div id="resuGra">
+    <div class="resuGra">
+        <h2>Aliments choisis, classés par tranches de nutri-score</h2>
         <canvas id="histogramme1" class="caseGraphe">
 
         </canvas>
-        <div id="histogramme2" class="caseGraphe">
+    </div>
+    <div class="ligne"></div>
 
-        </div>
-        <div id="histogramme3" class="caseGraphe">
+    <div class="resuGra">
+        <h2>Âges des personnes qui ont réalisé le sondage</h2>
+        <canvas id="histogramme2" class="caseGraphe">
 
-        </div>
+        </canvas>
+    </div>
+    <div class="ligne"></div>
+
+    <div class="resuGra">
+        <h2>Nombre de personnes qui consomme de l'alcool</h2>
+        <canvas id="histogramme3" class="caseGraphe">
+
+        </canvas>
     </div>
     <footer>
         <div>

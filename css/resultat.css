@@ -19,14 +19,18 @@ h1 {
     margin: 1em auto 1em;
 }
 
-#resuGra{
+.resuGra{
     align-items: center;
+    position: relative;
 }
-
+#histogramme1, #histogramme2, #histogramme3{
+    width: 25%;
+    /* height: 30%; */
+}
 .caseGraphe {
-    border: 1px solid black ;
+    /* border: 1px solid black ; */
     width: 80%;
-    height: 215px;
+    height: 15em;
     margin: 5em auto 5em;
 }
 

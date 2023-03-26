@@ -165,7 +165,7 @@ h1 {
 }
 
 #resultat {
-    height: 100px;
+    height: 40px;
     border: 2px solid black;
     margin: 0 1.5em 0em;
     transition: all 25ms 100ms ease-in-out;
