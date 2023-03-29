@@ -1,60 +1,26 @@
 import { AlimentsClick } from './AlimentsClick.js';
 
-const getFood = () => {
-    var foods = $("#resultat li div:last-child");
-    var result = [];
-
-    for (let pas = 0; pas < foods.length; pas++) {
-
-        result.push(foods[pas].innerHTML);
-
-    }
-    return result;
-}
-
+/**
+ * Verifis si le nombre de li se trouvant dans
+ * la div #resultat et inferieur a 10
+ * @returns 
+ */
 const verifLength = () => {
     if ($("#resultat").children().length == 10) {
         $("#choix > li").off("click");
         return;
     }
-    
+
     AlimentsClick.click();
 }
 
-const verifForm = () => {
-    document.querySelector("button#env").addEventListener("click", () => {
-        $.ajax({
-            async: true,
-            type: "post",
-
-            url: "./php/ResultRegister.php",
-            data: {
-                tab: getFood(),
-                nom: document.querySelector("input[name=nom]").value,
-                prenom: document.querySelector("input[name=prenom]").value,
-                age: document.querySelector("input[name=age]").value
-            },
-            success: data => {
-                //alert(data);
-                if (data == "GG") {
-                    $(location).attr("href", "./resultat.html");
-                }
-                else {
-                    alert(data);
-                }
-            },
-            error: () => {
-                alert("Problem occured in ajax of Sondage.js at verifForm");
-            }
-        });
-    });
-}
-
+/**
+ * Initialise les check box des categorie d'aliment
+ */
 const getDefaultCates = () => {
     let url = "./php/getDefaultFiltre.php";
     $.ajax({
         async: true,
-        contentType: "application/x-www-form-urlencoded",
         type: "POST",
         url: url,
         dataType: "json",
@@ -67,52 +33,74 @@ const getDefaultCates = () => {
         }
     });
 
+    /**
+     * Met en visuel les check box sur la page
+     * @param {*} data - les categorie d'aliment retourne par la requete ajax
+     */
     const addFilterCheckBox = data => {
         let i = 0;
-        for (let value of data) {
+        for (const value of data) {
             $('#filtre')
-                .append("<div><input type='checkbox' name='category' " + "id=" + i + ">" + "<label for=" + i + ">" + value["alim_grp_nom_fr"] + "</label></div>")
-                ;
-            ++i
+                .append("<div><input type='checkbox' name='category' " + "id=" + i + ">"
+                 + "<label for=" + i + ">" + value["alim_grp_nom_fr"] + "</label></div>");
+            ++i;
         }
     }
 };
 
-
+/**
+ * Rend qu'un seul checkbox active, lorsqu'un est coche, les autres se decochent
+ * @param {String} clickedInput 
+ */
 const checkboxOnlyOne = clickedInput => {
     $("input[type=checkbox]").each(function () {
         $(this).prop("checked", false);
     });
+
     clickedInput.prop("checked", true);
     $("#search").val("");
 }
 
 let clickedInputId;
 
+/**
+ * Verifis s'il y a au moins une checkbox qui a ete coche
+ * @returns vrais si c'est le cas, sinon faux
+ */
 const hasOneCheckedBox = () => {
     let is = false;
+
     $("input[type=checkbox]").each(function () {
         if ($(this).is(":checked")) {
             is = true;
         }
     });
+
     return is;
 }
 
 let previousResearch = " ";
 
+/**
+ * Met a disposition la barre de recherche
+ */
 const addEventToSeachBox = () => {
     $("#search").keyup(function (event) {
         if (event.keyCode == 13 && $.trim($(this).val()) != "" && hasOneCheckedBox() && $(this).val() != previousResearch) {
             previousResearch = $(this).val();
             searchBox(clickedInputId);
         }
-        if (event.keyCode == 13 && !hasOneCheckedBox()) {
+
+        if (event.keyCode === 13 && !hasOneCheckedBox()) {
             $('#choix').html("<h2>Veuillez filtrer avant d'éffectuer une recherche</h2>");
         }
     });
 }
-
+/**
+ * Enleve le message 'Veuillez filtrer avant d'éfectuer une recherche'
+ * lorsqu'une checkbox est clique
+ * @param {boolean} isRemoved 
+ */
 const removeTips = isRemoved => {
     if (!isRemoved) {
         $("div#choix h2").remove();
@@ -121,9 +109,13 @@ const removeTips = isRemoved => {
 
 let previousCkeckedBox = " ";
 
+/**
+ * Charge tous les aliments correspondant a la categoris choisis via les checkbox
+ */
 const choixCates = () => {
     let isRemoved = false;
     let labels = $("#filtre label").toArray();
+
     $("input[type=checkbox]").on("change", function () {
         previousResearch = " "; // init the var, because in another section we can make the same research with the same string
         removeTips(isRemoved);
@@ -134,14 +126,12 @@ const choixCates = () => {
             previousCkeckedBox = labels[clickedInputId].textContent;
             let url = "./php/filtres.php";
             let allCategory = labels[clickedInputId].textContent;
-            // console.log(allCategory);
-
             let data1 = {
                 category: allCategory,
             };
+
             $.ajax({
                 async: true,
-                contentType: "application/x-www-form-urlencoded",
                 type: "POST",
                 url: url,
                 dataType: "json",
@@ -154,6 +144,7 @@ const choixCates = () => {
                     alert("Problem occured in ajax of Sondage.js 3");
                 }
             });
+
             const addFilterchoisi = data => {
                 $("#choix > li").remove();
                 for (let value of data) {
@@ -162,12 +153,16 @@ const choixCates = () => {
             }
         }
     });
-    // });
 }
 
+/**
+ * Charge les donnees correspondant a la chaine entre dans la barre de cherche,
+ * pour une categorie d'aliment choisis
+ * @param {String} clickedInput - la categorie choisis
+ */
 const searchBox = clickedInput => {
-    let labels = Array.from(document.querySelectorAll("#filtre label"));
-    let category = labels[clickedInput].textContent;
+    let labels = Array.from($("#filtre label"));
+    let category = $(labels[clickedInput]).text();
 
     $.ajax({
         async: true,
@@ -184,29 +179,34 @@ const searchBox = clickedInput => {
             verifLength();
         },
         error: () => {
-            alert("Problem occured in ajax of Sondage.js 4");
-
+            alert("Problem occurred in ajax of Sondage.js 4");
         }
     });
+
     const addChoixAliment = data => {
         $("#choix > li").remove();
         for (let value of data) {
             $('#choix').append("<li><div>" + value["alim_nom_fr"] + "</div></li>");
         }
-    }
-}
+    };
+};
 
+/**
+ * Initialise tout les evenements de la page de sondage
+ */
 const startSondage = () => {
     AlimentsClick.ereaseButton();
     getDefaultCates();
     addEventToSeachBox();
-    verifForm();
+    // verifForm();
 
-    $("#resultat").on("DOMNodeInserted", function (){
+    $("#resultat").on("DOMNodeInserted", function () {
         if ($(this).children().length == 10) {
             $("#choix > li").off("click");
         }
     });
 }
 
-window.addEventListener("DOMContentLoaded", startSondage);
+$(document).ready(() => {
+    startSondage();
+});

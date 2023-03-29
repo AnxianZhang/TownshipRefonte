@@ -1,15 +1,4 @@
-// import { AjaxRequest } from "./AjaxRequest.js";
-
 $(document).ready(function () {
-    // new AjaxRequest(
-    //     "./php/ResultData.php",
-    //     "json",
-    //     showNumberAlimentNutriscoreOfUsers,
-    //     null,
-    //     e => {
-    //         alert(e);
-    //     }
-    // ).doAjaxtRequest();
     showNumberAlimentNutriscoreOfUsers();
     shownumberOfUserUnderAge();
     showNumberOfPersonDrinkAlcohol();
@@ -56,6 +45,7 @@ const showNumberOfPersonDrinkAlcohol = () =>{
         }
     });
 }
+
 const shownumberOfUserUnderAge = () =>{
     $.ajax({
         async: true,

@@ -1,7 +1,6 @@
 <?php
 function sendNumberAlimentNutriscoreOfUsers(){
     require("connexionBD.php");
-    // $sql = "select count(*) from utilisateur;";
     $sql = "SELECT
                 SUM(CASE WHEN nutriscore BETWEEN 0 AND 2 THEN 1 ELSE 0 END) AS num_nutriscore_0_2,
                 SUM(CASE WHEN nutriscore BETWEEN 2 AND 4 THEN 1 ELSE 0 END) AS num_nutriscore_2_4,
@@ -17,7 +16,6 @@ function sendNumberAlimentNutriscoreOfUsers(){
 
         if ($commande->execute()){
             $result = $commande->fetchAll(PDO::FETCH_ASSOC);
-            // var_dump($result); die();
             echo json_encode($result[0]);
         }
     }catch(PDOException $e){

@@ -1,7 +1,6 @@
 <?php
 function numberOfPersoneDrinkAlcohol(){
     require("connexionBD.php");
-    // $sql = "select count(*) from utilisateur;";
     $sqlUnder = "SELECT COUNT(DISTINCT utilisateur.Id_User) as under
             FROM utilisateur
             JOIN sondage ON utilisateur.Id_User = sondage.Id_User
@@ -13,7 +12,7 @@ function numberOfPersoneDrinkAlcohol(){
                 JOIN sondage ON utilisateur.Id_User = sondage.Id_User
                 JOIN resultat ON sondage.Id_sondage = resultat.Id_sondage
                 JOIN aliments ON resultat.Id_Aliment = aliments.alim_code
-                WHERE aliments.alim_nom_fr LIKE '%alcool%';";
+                WHERE aliments.alim_ssgrp_nom_fr LIKE '%alcool%';";
 
     try {
         $under;
@@ -22,7 +21,6 @@ function numberOfPersoneDrinkAlcohol(){
 
         if ($commande->execute()){
             $result = $commande->fetchAll(PDO::FETCH_ASSOC);
-            // var_dump($result); die();
             $under = $result[0];
 
             if ($commande2->execute()){
